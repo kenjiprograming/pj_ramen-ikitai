@@ -5,12 +5,50 @@
 ## インストール
 
 ```bash
-cd <配置したい場所>
 git clone git@gitlab.com:knowneuroknot.inc1/ramen-ikitai.git
 cd ramen-ikitai
+cp .env.example .env
+
+docker run --rm \
+    -u "$(id -u):$(id -g)" \
+    -v "$(pwd):/var/www/html" \
+    -w /var/www/html \
+    laravelsail/php82-composer:latest \
+    composer install --ignore-platform-reqs
+
+sail up -d
+sail npm install
+sail npm run dev
+
+# appKeyが無いとなるので、「Generate app key」のボタンを押す。
 ```
 
 ## 使い方
+
+### リソース管理方法(git)
+
+### ブランチ
+
+- 本流: `master`
+- 新妻: `niizuma_develop`
+- 城所: `kidokoro_develop`
+
+コマンド例:
+
+```bash
+git ch -b kidokoro_develop
+```
+
+### コミット
+
+[gitmoji](https://gitmoji.dev/)を使ってください。主にコーディングを作る時は :lipstick: を使えばいいです。コマンド例を参考にしてみてください。
+
+コマンド例：
+
+```bash
+git add .
+git commit -m ":lipstick: <表側>ヘッダーを修正しました。"
+```
 
 ### コマンド一覧
 
@@ -36,6 +74,8 @@ CTRL + C
 
 表側
 
+> こちらを今は使う。
+
 [http://localhost/](http://localhost/)
 
 ### 修正対象箇所
@@ -43,3 +83,11 @@ CTRL + C
 ```plaintext
 resources/js/Pages/Top.vue
 ```
+
+## 参考
+
+- [https://qiita.com/kai_kou/items/bfea0281689b3d376812](https://qiita.com/kai_kou/items/bfea0281689b3d376812)
+
+- [https://zenn.dev/na9/articles/e5d70c156ea141#2.-%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%81%8B%E3%82%89%E3%82%AF%E3%83%AD%E3%83%BC%E3%83%B3%E3%81%99%E3%82%8B](https://zenn.dev/na9/articles/e5d70c156ea141#2.-%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%81%8B%E3%82%89%E3%82%AF%E3%83%AD%E3%83%BC%E3%83%B3%E3%81%99%E3%82%8B)
+
+- [https://readouble.com/laravel/10.x/ja/sail.html#installing-composer-dependencies-for-existing-projects](https://readouble.com/laravel/10.x/ja/sail.html#installing-composer-dependencies-for-existing-projects)
