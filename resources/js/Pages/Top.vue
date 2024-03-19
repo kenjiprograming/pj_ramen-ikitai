@@ -30,7 +30,19 @@ import { Head } from '@inertiajs/vue3';
                 </div>
             </div>
         </div>
-
+        <!-- 地区からラーメンを探す -->
+        <div class="bg-orange-100">
+            <div class="flex justify-center">
+                <img src="/image/area.png" class="w-4/5" alt="浜松駅周辺の画像">
+            </div>
+            <div class="flex items-center justify-center">
+                <div class="bg-orange-500 w-4/5 h-11 flex ">
+                    <a href="#" class="">
+                        <p class="text-white">地区からラーメンを探す →</p>
+                    </a>
+            </div>
+            </div>
+        </div>
 
 
     </div>
