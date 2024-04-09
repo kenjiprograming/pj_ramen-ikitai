@@ -23,4 +23,13 @@ class ApiTestControllerTest extends TestCase
         $response->assertOk();
         $response->assertJson($dataArr);
     }
+
+    public function test_postした値に応じてラーメン情報の対象をJsonとして取ってこれる(): void
+    {
+        $response = $this->post('/ramens');
+        $dataArr = $response->json();
+
+        $response->assertOk();
+        $response->assertJson($dataArr);
+    }
 }
