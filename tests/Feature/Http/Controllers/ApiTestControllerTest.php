@@ -8,13 +8,19 @@ use Tests\TestCase;
 
 class ApiTestControllerTest extends TestCase
 {
-    /**
-     * A basic feature test example.
-     */
     public function test_ラーメン情報の一覧を取ってこれる(): void
     {
         $response = $this->get('/ramens');
 
         $response->assertStatus(200);
+    }
+
+    public function test_ラーメン情報の一覧をJsonとして取ってこれる(): void
+    {
+        $response = $this->get('/ramens');
+        $dataArr = $response->json();
+
+        $response->assertOk();
+        $response->assertJson($dataArr);
     }
 }
