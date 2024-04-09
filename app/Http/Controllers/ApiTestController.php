@@ -12,4 +12,16 @@ class ApiTestController extends Controller
         $response = Http::get('https://reqres.in/api/users?page=2');
         return $response;
     }
+
+    public function post()
+    {
+        $response = Http::withHeaders([
+                'Content-Type' => 'application/json',
+            ])->post('https://reqres.in/api/users', [
+                'name' => 'morpheus',
+                'job' => 'leader',
+            ]);
+
+        return $response;
+    }
 }
