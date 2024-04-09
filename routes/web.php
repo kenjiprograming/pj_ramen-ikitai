@@ -42,5 +42,6 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/ramens', [ApiTestController::class, 'index']);
 Route::post('/ramens', [ApiTestController::class, 'post']);
+// Route::get('/concurrentRamens', [ApiTestController::class, 'post']);
 
 require __DIR__.'/auth.php';

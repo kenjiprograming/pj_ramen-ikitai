@@ -32,4 +32,13 @@ class ApiTestControllerTest extends TestCase
         $response->assertOk();
         $response->assertJson($dataArr);
     }
+
+    public function test_並列処理でラーメン情報の一覧をJsonとして取ってこれる(): void
+    {
+        $response = $this->get('/concurrentRamens');
+        $dataArr = $response->json();
+
+        $response->assertOk();
+        $response->assertJson($dataArr);
+    }
 }
