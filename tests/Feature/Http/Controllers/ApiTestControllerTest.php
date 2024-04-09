@@ -41,4 +41,13 @@ class ApiTestControllerTest extends TestCase
         $response->assertOk();
         $response->assertJson($dataArr);
     }
+
+    public function test_リクエストマクロでラーメン情報の一覧をJsonとして取ってこれる(): void
+    {
+        $response = $this->get('/macroRamens');
+        $dataArr = $response->json();
+
+        $response->assertOk();
+        $response->assertJson($dataArr);
+    }
 }
