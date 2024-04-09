@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use GuzzleHttp\Pool;
+use Illuminate\Http\Client\Pool;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 
@@ -34,8 +34,6 @@ class ApiTestController extends Controller
             $pool->get('https://reqres.in/api/users?page=2'),
         ]);
 
-        return $responses[0]->ok() &&
-            $responses[1]->ok() &&
-            $responses[2]->ok();
+        return $responses;
     }
 }
