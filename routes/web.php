@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ApiTestController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Admin\RamenController;
 use App\Http\Controllers\TopController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -27,6 +28,15 @@ Route::get('/admin', function () {
         'phpVersion' => PHP_VERSION,
     ]);
 });
+
+// Route::get('/admin/ramen/input', [RamenController::class, 'input'])
+//     ->name('admin.ramen.input');
+Route::resource('/admin/ramen', RamenController::class)
+    ->except(['store', 'update']);
+Route::post('/admin/ramen/create', [RamenController::class, 'store'])
+    ->name('admin.ramen.store');
+Route::put('/admin/ramen/{ramen}/edit', [RamenController::class, 'update'])
+    ->name('admin.ramen.update');
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
