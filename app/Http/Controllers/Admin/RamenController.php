@@ -13,7 +13,8 @@ class RamenController extends Controller
 
     public function index(Request $request): Response
     {
-        return Inertia::render('Admin/Index', []);
+        $ramens = Ramen::all();
+        return Inertia::render('Admin/Index', ['ramens' => $ramens]);
     }
 
     public function create(Request $request): Response
