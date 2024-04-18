@@ -21,6 +21,9 @@ defineProps({ ramens: Object })
             <div>{{ ramen.time_close }}</div>
             <div>{{ ramen.date_open }}</div>
             <div>{{ ramen.day_close }}</div>
+
+            <Link :href="route('admin.ramen.show', ramen)">詳細</Link>
+            <Link :href="route('admin.ramen.edit', ramen)">編集</Link>
         </div>
     </div>
 

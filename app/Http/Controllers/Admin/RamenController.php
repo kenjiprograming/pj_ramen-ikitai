@@ -35,20 +35,19 @@ class RamenController extends Controller
             'day_close' => ['required'],
         ]);
 
-        $ramen = Ramen::create($formData);
+        Ramen::create($formData);
 
         return to_route('admin.ramen.index');
-        return to_route('admin.ramen.show', $ramen);
     }
 
-    public function show(Request $request): Response
+    public function show(Ramen $ramen): Response
     {
-        return Inertia::render('Admin/Show', []);
+        return Inertia::render('Admin/Show', ['ramen' => $ramen]);
     }
 
-    public function edit(Request $request): Response
+    public function edit(Ramen $ramen): Response
     {
-        return Inertia::render('Admin/Edit', []);
+        return Inertia::render('Admin/Edit', ['ramen' => $ramen]);
     }
 
     public function update(Request $request): void
