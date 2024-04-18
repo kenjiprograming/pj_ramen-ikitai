@@ -29,12 +29,31 @@ Route::get('/admin', function () {
     ]);
 });
 
-Route::resource('/admin/ramen', RamenController::class)
-    ->except(['store', 'update'])->names('admin.ramen');
-Route::post('/admin/ramen/create', [RamenController::class, 'store'])
-    ->name('admin.ramen.store');
-Route::put('/admin/ramen/{ramen}/edit', [RamenController::class, 'update'])
-    ->name('admin.ramen.update');
+Route::prefix('admin')->name('admin.')->group(function () {
+
+    Route::get('/ramen', [RamenController::class, 'index'])
+        ->name('ramen.index');
+
+    Route::get('/ramen/create', [RamenController::class, 'create'])
+        ->name('ramen.create');
+
+    Route::post('/ramen/create', [RamenController::class, 'store'])
+        ->name('ramen.store');
+
+    Route::get('/ramen/{ramen}', [RamenController::class, 'show'])
+        ->name('ramen.show');
+
+    Route::get('/ramen/{ramen}/edit', [RamenController::class, 'edit'])
+        ->name('ramen.edit');
+
+    Route::put('/ramen/{ramen}/edit', [RamenController::class, 'update'])
+        ->name('ramen.update');
+
+    Route::delete('/ramen/{ramen}', [RamenController::class, 'show'])
+        ->name('ramen.destroy');
+});
+
+
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
