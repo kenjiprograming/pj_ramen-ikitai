@@ -29,10 +29,8 @@ Route::get('/admin', function () {
     ]);
 });
 
-// Route::get('/admin/ramen/input', [RamenController::class, 'input'])
-//     ->name('admin.ramen.input');
 Route::resource('/admin/ramen', RamenController::class)
-    ->except(['store', 'update']);
+    ->except(['store', 'update'])->names('admin.ramen');
 Route::post('/admin/ramen/create', [RamenController::class, 'store'])
     ->name('admin.ramen.store');
 Route::put('/admin/ramen/{ramen}/edit', [RamenController::class, 'update'])

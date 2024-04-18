@@ -24,7 +24,7 @@ const form = useForm({
     'time_open': null,
     'time_close': null,
     'date_open': null,
-    'date_close': null,
+    'day_close': null,
 })
 
 const submit = () => {
@@ -44,27 +44,27 @@ const submit = () => {
             <div>
                 <div>店名</div>
                 <div v-if="form.errors.name" class="text-red-500">{{ form.errors.name }}</div>
-                <input type="text" name="name">
+                <input type="text" v-model="form.name">
             </div>
 
             <div>
                 <div>住所</div>
                 <div v-if="form.errors.name" class="text-red-500">{{ form.errors.name }}</div>
-                <input type="text" name="address">
+                <input type="text" v-model="form.address">
             </div>
 
 
             <div>
                 <div>系統</div>
-                <select id="" name="type">
-                    <option v-for="type in types" value="{{ type }}">{{ type }}</option>
+                <select id="" v-model="form.type">
+                    <option v-for="type in types" :value="type">{{ type }}</option>
                 </select>
             </div>
 
             <div>
                 <div>味</div>
-                <select name="taste" id="">
-                    <option v-for="taste in tastes" value="{{ taste }}">{{ taste }}</option>
+                <select v-model="form.taste" id="">
+                    <option v-for="taste in tastes" :value="taste">{{ taste }}</option>
                 </select>
             </div>
 
@@ -72,13 +72,13 @@ const submit = () => {
                 <div>営業時間</div>
                 <div v-if="form.errors.time_open" class="text-red-500">{{ form.errors.time_open }}</div>
                 <div v-if="form.errors.time_close" class="text-red-500">{{ form.errors.time_close }}</div>
-                <input type="text" name="time_open"> ~ <input type="text" name="time_close">
+                <input type="text" v-model="form.time_open"> ~ <input type="text" v-model="form.time_close">
             </div>
 
             <div>
                 <div>創業日</div>
                 <div v-if="form.errors.date_open" class="text-red-500">{{ form.errors.date_open }}</div>
-                <input type="text" name="date_open">
+                <input type="text" v-model="form.date_open">
             </div>
 
             <div>
@@ -89,7 +89,7 @@ const submit = () => {
             <div>
                 <div>定休日</div>
                 <div v-if="form.errors.day_close" class="text-red-500">{{ form.errors.day_close }}</div>
-                <input type="text" name="day_close">
+                <input type="text" v-model="form.day_close">
             </div>
 
             <div>

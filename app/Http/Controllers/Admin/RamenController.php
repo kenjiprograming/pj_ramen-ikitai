@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Ramen;
 use Illuminate\Http\Request;
 use Inertia\Response;
 use Inertia\Inertia;
@@ -33,10 +34,10 @@ class RamenController extends Controller
             'day_close' => ['required'],
         ]);
 
-        dump($formData);
-        exit;
+        $ramen = Ramen::create($formData);
 
-        return redirect()->route('news.index');
+        return to_route('admin.ramen.index');
+        return to_route('admin.ramen.show', $ramen);
     }
 
     public function show(Request $request): Response
