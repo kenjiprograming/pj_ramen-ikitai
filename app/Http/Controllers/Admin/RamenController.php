@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Inertia\Response;
 use Inertia\Inertia;
+use Termwind\Components\Raw;
 
 class RamenController extends Controller
 {
@@ -70,8 +71,10 @@ class RamenController extends Controller
             ->with('message', 'Ramen Updated Successfully');
     }
 
-    public function destroy(Request $request): void
+    public function destroy(Ramen $ramen)
     {
-        redirect();
+        $ramen->delete();
+        return to_route('admin.ramen.index')
+            ->with('message', 'Ramen Delete Successfully');
     }
 }

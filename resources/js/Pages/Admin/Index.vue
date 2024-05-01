@@ -1,10 +1,15 @@
 <script setup>
-import { Link } from '@inertiajs/vue3'
-import { usePage } from '@inertiajs/vue3'
+import { Link, usePage, useForm } from '@inertiajs/vue3'
 
 defineProps({ ramens: Object })
 const page = usePage()
 
+const form = useForm({});
+const deleteRamen = (ramen) => {
+    form.delete(route('admin.ramen.destroy', ramen), {
+        preserveScroll: true,
+    })
+}
 </script>
 
 <template>
@@ -35,6 +40,7 @@ const page = usePage()
 
             <Link :href="route('admin.ramen.show', ramen)">詳細</Link>
             <Link :href="route('admin.ramen.edit', ramen)">編集</Link>
+            <Link href="#" @click="deleteRamen(ramen)">削除</Link> <!-- ←追加 -->
         </div>
     </div>
 

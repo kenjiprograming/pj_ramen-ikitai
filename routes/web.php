@@ -49,7 +49,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::put('/ramen/{ramen}/edit', [RamenController::class, 'update'])
         ->name('ramen.update');
 
-    Route::delete('/ramen/{ramen}', [RamenController::class, 'show'])
+    Route::delete('/ramen/{ramen}', [RamenController::class, 'destroy'])
         ->name('ramen.destroy');
 });
 
