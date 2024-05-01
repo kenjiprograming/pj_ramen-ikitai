@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Ramen;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 use Inertia\Response;
 use Inertia\Inertia;
 
@@ -50,9 +51,23 @@ class RamenController extends Controller
         return Inertia::render('Admin/Edit', ['ramen' => $ramen]);
     }
 
-    public function update(Request $request): void
+    public function update(Request $request, Ramen $ramen)
     {
-        redirect();
+        $formData = $request->validate([
+            'name' => ['required'],
+            'address' => ['required'],
+            'type' => ['required'],
+            'taste' => ['required'],
+            'time_open' => ['required'],
+            'time_close' => ['required'],
+            'date_open' => ['required'],
+            'day_close' => ['required'],
+        ]);
+
+        $ramen->update($formData);
+
+        return to_route('admin.ramen.index')
+            ->with('message', 'Ramen Updated Successfully');
     }
 
     public function destroy(Request $request): void

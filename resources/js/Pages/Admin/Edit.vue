@@ -29,7 +29,7 @@ const form = useForm({
 })
 
 const submit = () => {
-    form.post(route('admin.ramen.update'));
+    form.put(route('admin.ramen.update', props.ramen.id));
 }
 
 </script>
