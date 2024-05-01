@@ -14,6 +14,7 @@ class Ramen extends Model
         'address',
         'type',
         'taste',
+        'image',
         'time_open',
         'time_close',
         'date_open',
