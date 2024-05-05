@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
+use Inertia\Inertia;
+use Inertia\Response;
+
 use App\Http\Controllers\Controller;
 use App\Models\Ramen;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Redirect;
-use Inertia\Response;
-use Inertia\Inertia;
-use Termwind\Components\Raw;
 
 class RamenController extends Controller
 {
@@ -36,6 +37,12 @@ class RamenController extends Controller
             'date_open' => ['required'],
             'day_close' => ['required'],
         ]);
+
+        if ($image = $request->file('image')) {
+            $imageName = $image->getFilename(). '.'. $image->getClientOriginalExtension();
+            $image->storeAs('public/upload', $imageName);
+            $formData['image'] = $imageName;
+        }
 
         Ramen::create($formData);
 

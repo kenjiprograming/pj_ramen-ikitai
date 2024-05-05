@@ -1,7 +1,6 @@
 <script setup>
 import { useForm } from '@inertiajs/vue3';
 
-
 const types = [
     '家系',
     '次郎系',
@@ -21,11 +20,13 @@ const form = useForm({
     'address': null,
     'type': null,
     'taste': null,
+    'image': null,
     'time_open': null,
     'time_close': null,
     'date_open': null,
     'day_close': null,
 })
+
 
 const submit = () => {
     form.post(route('admin.ramen.store'));
@@ -52,7 +53,6 @@ const submit = () => {
                 <div v-if="form.errors.name" class="text-red-500">{{ form.errors.name }}</div>
                 <input type="text" v-model="form.address">
             </div>
-
 
             <div>
                 <div>系統</div>
@@ -83,7 +83,7 @@ const submit = () => {
 
             <div>
                 <div>ラーメン画像</div>
-                <input type="file" name="image_file">
+                <input type="file" name="image" @input="form.image = $event.target.files[0]">
             </div>
 
             <div>
