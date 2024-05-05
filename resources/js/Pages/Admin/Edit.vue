@@ -22,6 +22,7 @@ const form = useForm({
     'address':    props.ramen.address,
     'type':       props.ramen.type,
     'taste':      props.ramen.taste,
+    'image':      props.ramen.image,
     'time_open':  props.ramen.time_open,
     'time_close': props.ramen.time_close,
     'date_open':  props.ramen.date_open,
@@ -84,7 +85,10 @@ const submit = () => {
 
             <div>
                 <div>ラーメン画像</div>
-                <input type="file" name="image_file">
+                <input type="file" name="image">
+                <div>
+                    <img :src="'/upload/'+ form.image" alt="">
+                </div>
             </div>
 
             <div>

@@ -84,6 +84,9 @@ const submit = () => {
             <div>
                 <div>ラーメン画像</div>
                 <input type="file" name="image" @input="form.image = $event.target.files[0]">
+                <div>
+                    <img src="/image/default.jpg" alt="">
+                </div>
             </div>
 
             <div>
