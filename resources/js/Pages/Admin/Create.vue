@@ -79,6 +79,16 @@ const submit = () => {
                 <div>創業日</div>
                 <div v-if="form.errors.date_open" class="text-red-500">{{ form.errors.date_open }}</div>
                 <input type="text" v-model="form.date_open">
+                <VueDatePicker
+                    v-model="form.date_open"
+                    format="yyyy-MM-dd"
+                    model-type="yyyy-MM-dd"
+                    locale="ja"
+                    week-start="0"
+                    :enable-time-picker="false"
+                    inline
+                    auto-apply
+                />
             </div>
 
             <div>
