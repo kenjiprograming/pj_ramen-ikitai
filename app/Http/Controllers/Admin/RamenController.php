@@ -58,6 +58,7 @@ class RamenController extends Controller
 
     public function edit(Ramen $ramen): Response
     {
+        $ramen->day_close = explode(',', $ramen->day_close);
         return Inertia::render('Admin/Edit', ['ramen' => $ramen]);
     }
 
@@ -73,6 +74,14 @@ class RamenController extends Controller
             'date_open' => ['required'],
             'day_close' => ['required'],
         ]);
+
+        if ($image = $request->file('image')) {
+            $imageName = $image->getFilename(). '.'. $image->getClientOriginalExtension();
+            $image->storeAs('public/upload', $imageName);
+            $formData['image'] = $imageName;
+        }
+
+        $formData['day_close'] = implode(",", $formData['day_close']);
 
         $ramen->update($formData);
 
