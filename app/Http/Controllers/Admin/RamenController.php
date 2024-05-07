@@ -44,6 +44,8 @@ class RamenController extends Controller
             $formData['image'] = $imageName;
         }
 
+        $formData['day_close'] = implode(",", $formData['day_close']);
+
         Ramen::create($formData);
 
         return to_route('admin.ramen.index');
