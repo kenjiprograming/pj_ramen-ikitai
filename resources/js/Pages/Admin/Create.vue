@@ -1,4 +1,5 @@
 <script setup>
+import { ref } from 'vue';
 import { useForm } from '@inertiajs/vue3';
 
 const types = [
@@ -24,17 +25,29 @@ const day_closes = [
 ]
 
 const form = useForm({
-    'name': null,
-    'address': null,
-    'type': null,
-    'taste': null,
-    'image': null,
-    'time_open': null,
-    'time_close': null,
-    'date_open': null,
-    'day_close': [],
+    name: null,
+    address: null,
+    type: null,
+    taste: null,
+    image: null,
+    time_open: null,
+    time_close: null,
+    date_open: null,
+    day_close: [],
 })
 
+const imagePreview = ref('');
+const handleFileChange = (event) => {
+    const file = event.target.files[0];
+    form.image = file;
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            imagePreview.value = e.target.result;
+        }
+        reader.readAsDataURL(file);
+    }
+}
 
 const submit = () => {
     form.post(route('admin.ramen.store'));
@@ -107,9 +120,10 @@ const submit = () => {
 
             <div>
                 <div>ラーメン画像</div>
-                <input type="file" name="image" @input="form.image = $event.target.files[0]">
+                <input type="file" name="image" @input="handleFileChange">
                 <div>
-                    <img src="/image/default.jpg" alt="">
+                    <img v-if="imagePreview" :src="imagePreview" alt="">
+                    <img v-else src="/image/default.jpg" alt="">
                 </div>
             </div>
 
