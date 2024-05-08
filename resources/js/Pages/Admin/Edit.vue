@@ -4,17 +4,25 @@ import { useForm } from '@inertiajs/vue3';
 const props = defineProps({ ramen: Object })
 
 const types = [
-    '家系',
-    '次郎系',
-    'がんこ系',
-    '青葉系',
+    '家系', '次郎系', 'がんこ系', '青葉系',
 ]
 
 const tastes = [
-    '醤油',
-    '塩',
-    '味噌',
-    '豚骨',
+    '醤油', '塩', '味噌', '豚骨',
+]
+
+const time_opens = [
+    "5:00", "6:00", "7:00", "8:00",
+    "9:00", "10:00", "11:00", "12:00",
+]
+
+const time_closes = [
+    "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00",
+    "21:00", "22:00", "23:00", "24:00", "25:00", "26:00", "27:00",
+]
+
+const day_closes = [
+    '日', '月', '火', '水', '木', '金', '土',
 ]
 
 const form = useForm({
@@ -75,29 +83,10 @@ const submit = () => {
                 <div v-if="form.errors.time_open" class="text-red-500">{{ form.errors.time_open }}</div>
                 <div v-if="form.errors.time_close" class="text-red-500">{{ form.errors.time_close }}</div>
                 <select v-model="form.time_open">
-                    <option>6:00</option>
-                    <option>7:00</option>
-                    <option>8:00</option>
-                    <option>9:00</option>
-                    <option>10:00</option>
-                    <option>11:00</option>
-                    <option>12:00</option>
+                    <option v-for="time_open in time_opens" :value="time_open">{{ time_open }}</option>
                 </select> ~
                 <select v-model="form.time_close">
-                    <option>14:00</option>
-                    <option>15:00</option>
-                    <option>16:00</option>
-                    <option>17:00</option>
-                    <option>18:00</option>
-                    <option>19:00</option>
-                    <option>20:00</option>
-                    <option>21:00</option>
-                    <option>22:00</option>
-                    <option>23:00</option>
-                    <option>24:00</option>
-                    <option>25:00</option>
-                    <option>26:00</option>
-                    <option>27:00</option>
+                    <option v-for="time_close in time_closes" :value="time_close">{{ time_close }}</option>
                 </select>
             </div>
 
@@ -129,20 +118,10 @@ const submit = () => {
             <div>
                 <div>定休日</div>
                 <div v-if="form.errors.day_close" class="text-red-500">{{ form.errors.day_close }}</div>
-                <input type="checkbox" id="日" value="日" v-model="form.day_close">
-                <label for="日">日</label>
-                <input type="checkbox" id="月" value="月" v-model="form.day_close">
-                <label for="月">月</label>
-                <input type="checkbox" id="火" value="火" v-model="form.day_close">
-                <label for="火">火</label>
-                <input type="checkbox" id="水" value="水" v-model="form.day_close">
-                <label for="水">水</label>
-                <input type="checkbox" id="木" value="木" v-model="form.day_close">
-                <label for="木">木</label>
-                <input type="checkbox" id="金" value="金" v-model="form.day_close">
-                <label for="金">金</label>
-                <input type="checkbox" id="土" value="土" v-model="form.day_close">
-                <label for="土">土</label>
+                <div v-for="day_close in day_closes">
+                    <input type="checkbox" id="{{ day_close }}" :value="day_close" v-model="form.day_close">
+                    <label for="{{ day_close }}">{{ day_close }}</label>
+                </div>
             </div>
 
             <div>
