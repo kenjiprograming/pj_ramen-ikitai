@@ -69,6 +69,7 @@ class RamenController extends Controller
             'address' => ['required'],
             'type' => ['required'],
             'taste' => ['required'],
+            'old_image' => ['nullable'],
             'time_open' => ['required'],
             'time_close' => ['required'],
             'date_open' => ['required'],
@@ -79,7 +80,13 @@ class RamenController extends Controller
             $imageName = $image->getFilename(). '.'. $image->getClientOriginalExtension();
             $image->storeAs('public/upload', $imageName);
             $formData['image'] = $imageName;
+
+            if (!empty($formData['old_image'])) {
+                unlink(storage_path('app/public/upload/'). $formData['old_image']);
+            }
         }
+
+        unset($formData['old_image']);
 
         $formData['day_close'] = implode(",", $formData['day_close']);
 

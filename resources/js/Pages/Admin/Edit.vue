@@ -1,5 +1,5 @@
 <script setup>
-import { useForm } from '@inertiajs/vue3';
+import { useForm, router } from '@inertiajs/vue3';
 
 const props = defineProps({ ramen: Object })
 
@@ -26,21 +26,33 @@ const day_closes = [
 ]
 
 const form = useForm({
-    'name':       props.ramen.name,
-    'address':    props.ramen.address,
-    'type':       props.ramen.type,
-    'taste':      props.ramen.taste,
-    'image':      props.ramen.image,
-    'time_open':  props.ramen.time_open,
-    'time_close': props.ramen.time_close,
-    'date_open':  props.ramen.date_open,
-    'day_close':  props.ramen.day_close,
+    name:       props.ramen.name,
+    address:    props.ramen.address,
+    type:       props.ramen.type,
+    taste:      props.ramen.taste,
+    image:      null,
+    old_image:  props.ramen.image,
+    time_open:  props.ramen.time_open,
+    time_close: props.ramen.time_close,
+    date_open:  props.ramen.date_open,
+    day_close:  props.ramen.day_close,
 })
 
 const submit = () => {
-    form.put(route('admin.ramen.update', props.ramen.id));
+    router.post(route('admin.ramen.update', props.ramen.id), {
+        _method: 'put',
+        name:       form.name,
+        address:    form.address,
+        type:       form.type,
+        taste:      form.taste,
+        image:      form.image,
+        old_image:  form.old_image,
+        time_open:  form.time_open,
+        time_close: form.time_close,
+        date_open:  form.date_open,
+        day_close:  form.day_close,
+    });
 }
-
 </script>
 
 <template>
@@ -109,9 +121,9 @@ const submit = () => {
 
             <div>
                 <div>ラーメン画像</div>
-                <input type="file" name="image">
+                <input type="file" name="image" @input="form.image = $event.target.files[0]">
                 <div>
-                    <img :src="'/upload/'+ form.image" alt="">
+                    <img :src="'/upload/'+ form.old_image" alt="">
                 </div>
             </div>
 
