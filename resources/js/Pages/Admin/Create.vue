@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue';
-import { useForm } from '@inertiajs/vue3';
+import { Link, useForm } from '@inertiajs/vue3';
 
 const types = [
     '家系', '次郎系', 'がんこ系', '青葉系',
@@ -56,90 +56,266 @@ const submit = () => {
 </script>
 
 <template>
-    <form @submit.prevent="submit">
+    <div class="
+    bg-gray-200
+    py-6
+    ">
+        <h1 class="
+        bg-white
+        w-11/12 h-32
+        mx-auto
+        rounded-xl
+        text-center content-center
+        text-black text-xl font-bold
+        ">新規作成画面</h1>
+    </div>
+
+    <div class="
+    bg-gray-200
+    py-4
+    ">
 
         <div class="
-            flex flex-col
-            bg-slate-300
+        w-11/12
+        mx-auto
+        ">
+
+            <div class="
+                bg-gray-100
+                h-14 px-5
+                content-center
+                font-semibold
+                rounded-t-xl
+                ">
+                <Link :href="route('admin.ramen.index')" class="
+                    border-b border-black
+                    ">一覧画面へ
+                </Link>
+            </div>
+
+            <div class="
+            bg-white
+            mx-auto p-6
+            rounded-b-xl
             ">
 
-            <div>
-                <div>店名</div>
-                <div v-if="form.errors.name" class="text-red-500">{{ form.errors.name }}</div>
-                <input type="text" v-model="form.name">
-            </div>
+                <form @submit.prevent="submit">
 
-            <div>
-                <div>住所</div>
-                <div v-if="form.errors.name" class="text-red-500">{{ form.errors.name }}</div>
-                <input type="text" v-model="form.address">
-            </div>
+                    <div class="
+                        flex flex-col
+                        ">
 
-            <div>
-                <div>系統</div>
-                <select id="" v-model="form.type">
-                    <option v-for="type in types" :value="type">{{ type }}</option>
-                </select>
-            </div>
+                        <div class="
+                            mb-6
+                            ">
 
-            <div>
-                <div>味</div>
-                <select v-model="form.taste" id="">
-                    <option v-for="taste in tastes" :value="taste">{{ taste }}</option>
-                </select>
-            </div>
+                            <div class="
+                                mb-2
+                                font-medium
+                                ">店名
+                            </div>
+                            <div v-if="form.errors.name" class="
+                                text-red-500
+                                ">{{ form.errors.name }}
+                            </div>
+                            <input type="text" v-model="form.name" placeholder="太麺三太" class="
+                                py-2 px-3
+                                w-full
+                                border-gray-300
+                                rounded-lg
+                                ">
+                        </div>
 
-            <div>
-                <div>営業時間</div>
-                <div v-if="form.errors.time_open" class="text-red-500">{{ form.errors.time_open }}</div>
-                <div v-if="form.errors.time_close" class="text-red-500">{{ form.errors.time_close }}</div>
-                <select v-model="form.time_open">
-                    <option v-for="time_open in time_opens" :value="time_open">{{ time_open }}</option>
-                </select> ~
-                <select v-model="form.time_close">
-                    <option v-for="time_close in time_closes" :value="time_close">{{ time_close }}</option>
-                </select>
-            </div>
+                        <div class="
+                            mb-6
+                            ">
 
-            <div>
-                <div>創業日</div>
-                <div v-if="form.errors.date_open" class="text-red-500">{{ form.errors.date_open }}</div>
-                <input type="text" v-model="form.date_open">
-                <VueDatePicker
-                    v-model="form.date_open"
-                    format="yyyy-MM-dd"
-                    model-type="yyyy-MM-dd"
-                    locale="ja"
-                    week-start="0"
-                    :enable-time-picker="false"
-                    no-today
-                    inline
-                    auto-apply
-                />
-            </div>
+                            <div class="
+                                mb-2
+                                font-medium
+                                ">住所
+                            </div>
+                            <div v-if="form.errors.address" class="
+                                text-red-500
+                                ">{{ form.errors.address }}
+                            </div>
+                            <input type="text" v-model="form.address" placeholder="静岡県浜松市中央区" class="
+                                py-2 px-3
+                                w-full
+                                border-gray-300
+                                rounded-lg
+                                ">
+                        </div>
 
-            <div>
-                <div>ラーメン画像</div>
-                <input type="file" name="image" @input="handleFileChange">
-                <div>
-                    <img v-if="imagePreview" :src="imagePreview" alt="">
-                    <img v-else src="/image/default.jpg" alt="">
-                </div>
-            </div>
+                        <div class="
+                            mb-6
+                            ">
+                            <div class="
+                                mb-2
+                                font-medium
+                                ">系統
+                            </div>
+                            <select v-model="form.type" class="
+                                py-2 px-3
+                                w-full
+                                border-gray-300
+                                rounded-lg
+                                ">
+                                <option v-for="type in types" :value="type">{{ type }}</option>
+                            </select>
+                        </div>
 
-            <div>
-                <div>定休日</div>
-                <div v-if="form.errors.day_close" class="text-red-500">{{ form.errors.day_close }}</div>
-                <div v-for="day_close in day_closes">
-                    <input type="checkbox" id="{{ day_close }}" :value="day_close" v-model="form.day_close">
-                    <label for="{{ day_close }}">{{ day_close }}</label>
-                </div>
-            </div>
+                        <div class="
+                            mb-6
+                            ">
+                            <div class="
+                                mb-2
+                                font-medium
+                                ">味
+                            </div>
+                            <select v-model="form.taste" class="
+                                py-2 px-3
+                                w-full
+                                border-gray-300
+                                rounded-lg
+                                ">
+                                <option v-for="taste in tastes" :value="taste">{{ taste }}</option>
+                            </select>
+                        </div>
 
-            <div>
-                <button type="submit">登録</button>
+                        <div class="
+                            mb-6
+                            ">
+                            <div class="
+                                mb-2
+                                font-medium
+                                ">営業時間
+                            </div>
+                            <div v-if="form.errors.time_open" class="
+                                text-red-500
+                                ">{{ form.errors.time_open }}
+                            </div>
+                            <div v-if="form.errors.time_close" class="
+                                text-red-500
+                                ">{{ form.errors.time_close }}
+                            </div>
+                            <select v-model="form.time_open" class="
+                                py-2 px-3
+                                w-5/12
+                                border-gray-300
+                                rounded-lg
+                                ">
+                                <option v-for="time_open in time_opens" :value="time_open">{{ time_open }}</option>
+                            </select>
+                            <span class="
+                                font-medium
+                                "> ~ </span>
+                            <select v-model="form.time_close" class="
+                                py-2 px-3
+                                w-5/12
+                                border-gray-300
+                                rounded-lg
+                                ">
+                                <option v-for="time_close in time_closes" :value="time_close">{{ time_close }}</option>
+                            </select>
+                        </div>
+
+                        <div class="
+                            mb-6
+                            ">
+                            <div class="
+                                mb-2
+                                font-medium
+                                ">創業日
+                            </div>
+                            <div v-if="form.errors.date_open" class="
+                                text-red-500
+                                ">{{ form.errors.date_open }}
+                            </div>
+                            <input type="text" v-model="form.date_open" class="
+                                mb-2 py-2 px-3
+                                w-full
+                                border-gray-300
+                                rounded-lg
+                                ">
+                            <VueDatePicker
+                                v-model="form.date_open"
+                                format="yyyy-MM-dd"
+                                model-type="yyyy-MM-dd"
+                                locale="ja"
+                                week-start="0"
+                                :enable-time-picker="false"
+                                no-today
+                                inline
+                                auto-apply
+                            />
+                        </div>
+
+                        <div class="
+                            mb-6
+                            ">
+                            <div class="
+                                mb-2
+                                font-medium
+                                ">ラーメン画像
+                            </div>
+                            <input type="file" name="image" @input="handleFileChange" class="
+                                mb-2 py-2
+                                cursor-pointer
+                                border-gray-300
+                                rounded-lg
+                                ">
+                            <div>
+                                <img v-if="imagePreview" :src="imagePreview" alt="">
+                                <img v-else src="/image/default.jpg" alt="">
+                            </div>
+                        </div>
+
+                        <div class="
+                            mb-6
+                            ">
+                            <div class="
+                                mb-2
+                                font-medium
+                                ">定休日
+                            </div>
+                            <div v-if="form.errors.day_close" class="
+                                text-red-500
+                                ">{{ form.errors.day_close }}
+                            </div>
+                            <div>
+                                <div v-for="day_close in day_closes" class="
+                                    inline-block
+                                    me-6
+                                    ">
+                                    <input type="checkbox" id="{{ day_close }}" :value="day_close" v-model="form.day_close" class="
+                                        rounded-md
+                                        border-gray-300
+                                        ">
+                                    <label for="{{ day_close }}" class="
+                                        ps-1
+                                        ">{{ day_close }}
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <button type="submit" class="
+                                curosor-pointer
+                                px-3 py-1
+                                border border-gray-500
+                                font-medium text-gray-600
+                                rounded-md
+                                hover:bg-gray-500 hover:text-white transition-all
+                                ">登録
+                            </button>
+                        </div>
+                    </div>
+                </form>
+
             </div>
         </div>
-    </form>
+    </div>
 
 </template>
