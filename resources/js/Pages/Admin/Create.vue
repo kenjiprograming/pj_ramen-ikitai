@@ -3,11 +3,11 @@ import { ref } from 'vue';
 import { Link, useForm } from '@inertiajs/vue3';
 
 const types = [
-    '家系', '次郎系', 'がんこ系', '青葉系',
+    '濃厚細麺（博多・熊本等）', 'あっさり細麺（旭川・函館等）', '濃厚太麺（横浜家系・札幌等）', 'あっさり太麺（喜多方・牛骨等）',
 ]
 
 const tastes = [
-    '醤油', '塩', '味噌', '豚骨',
+    '醤油', '塩', '味噌', '豚骨', '牛骨','煮干し', '白湯', '魚介'
 ]
 
 const time_opens = [
