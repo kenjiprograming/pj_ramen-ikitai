@@ -29,6 +29,7 @@ const form = useForm({
     address: null,
     type: null,
     taste: null,
+    url: null,
     image: null,
     time_open: null,
     time_close: null,
@@ -129,7 +130,6 @@ const submit = () => {
                         <div class="
                             mb-6
                             ">
-
                             <div class="
                                 mb-2
                                 font-medium
@@ -140,6 +140,26 @@ const submit = () => {
                                 ">{{ form.errors.address }}
                             </div>
                             <input type="text" v-model="form.address" placeholder="静岡県浜松市中央区" class="
+                                py-2 px-3
+                                w-full
+                                border-gray-300
+                                rounded-lg
+                                ">
+                        </div>
+
+                        <div class="
+                            mb-6
+                            ">
+                            <div class="
+                                mb-2
+                                font-medium
+                                ">URL
+                            </div>
+                            <div v-if="form.errors.url" class="
+                                text-red-500
+                                ">{{ form.errors.url }}
+                            </div>
+                            <input type="text" v-model="form.url" placeholder="https://" class="
                                 py-2 px-3
                                 w-full
                                 border-gray-300
@@ -226,30 +246,29 @@ const submit = () => {
                             <div class="
                                 mb-2
                                 font-medium
-                                ">創業日
+                                ">定休日
                             </div>
-                            <div v-if="form.errors.date_open" class="
+                            <div v-if="form.errors.day_close" class="
                                 text-red-500
-                                ">{{ form.errors.date_open }}
+                                ">{{ form.errors.day_close }}
                             </div>
-                            <input type="text" v-model="form.date_open" class="
-                                mb-2 py-2 px-3
-                                w-full
-                                border-gray-300
-                                rounded-lg
-                                ">
-                            <VueDatePicker
-                                v-model="form.date_open"
-                                format="yyyy-MM-dd"
-                                model-type="yyyy-MM-dd"
-                                locale="ja"
-                                week-start="0"
-                                :enable-time-picker="false"
-                                no-today
-                                inline
-                                auto-apply
-                            />
+                            <div>
+                                <div v-for="day_close in day_closes" class="
+                                    inline-block
+                                    me-6
+                                    ">
+                                    <input type="checkbox" id="{{ day_close }}" :value="day_close" v-model="form.day_close" class="
+                                        rounded-md
+                                        border-gray-300
+                                        ">
+                                    <label for="{{ day_close }}" class="
+                                        ps-1
+                                        ">{{ day_close }}
+                                    </label>
+                                </div>
+                            </div>
                         </div>
+
 
                         <div class="
                             mb-6
@@ -277,27 +296,29 @@ const submit = () => {
                             <div class="
                                 mb-2
                                 font-medium
-                                ">定休日
+                                ">創業日
                             </div>
-                            <div v-if="form.errors.day_close" class="
+                            <div v-if="form.errors.date_open" class="
                                 text-red-500
-                                ">{{ form.errors.day_close }}
+                                ">{{ form.errors.date_open }}
                             </div>
-                            <div>
-                                <div v-for="day_close in day_closes" class="
-                                    inline-block
-                                    me-6
-                                    ">
-                                    <input type="checkbox" id="{{ day_close }}" :value="day_close" v-model="form.day_close" class="
-                                        rounded-md
-                                        border-gray-300
-                                        ">
-                                    <label for="{{ day_close }}" class="
-                                        ps-1
-                                        ">{{ day_close }}
-                                    </label>
-                                </div>
-                            </div>
+                            <input type="text" v-model="form.date_open" class="
+                                mb-2 py-2 px-3
+                                w-full
+                                border-gray-300
+                                rounded-lg
+                                ">
+                            <VueDatePicker
+                                v-model="form.date_open"
+                                format="yyyy-MM-dd"
+                                model-type="yyyy-MM-dd"
+                                locale="ja"
+                                week-start="0"
+                                :enable-time-picker="false"
+                                no-today
+                                inline
+                                auto-apply
+                            />
                         </div>
 
                         <div>

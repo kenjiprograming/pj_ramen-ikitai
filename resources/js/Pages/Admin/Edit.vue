@@ -31,6 +31,7 @@ const form = useForm({
     address:    props.ramen.address,
     type:       props.ramen.type,
     taste:      props.ramen.taste,
+    url:        props.ramen.url,
     image:      null,
     old_image:  props.ramen.image,
     time_open:  props.ramen.time_open,
@@ -59,6 +60,7 @@ const submit = () => {
         address:    form.address,
         type:       form.type,
         taste:      form.taste,
+        url:        form.url,
         image:      form.image,
         old_image:  form.old_image,
         time_open:  form.time_open,
@@ -152,6 +154,25 @@ const submit = () => {
                                 text-red-500
                                 ">{{ form.errors.name }}</div>
                             <input type="text" v-model="form.address" class="
+                                py-2 px-3
+                                w-full
+                                border-gray-300
+                                rounded-lg
+                                ">
+                        </div>
+
+                        <div class="
+                            mb-6
+                            ">
+                            <div class="
+                                mb-2
+                                font-medium
+                                ">URL
+                            </div>
+                            <div v-if="form.errors.url" class="
+                                text-red-500
+                                ">{{ form.errors.url }}</div>
+                            <input type="text" v-model="form.url" class="
                                 py-2 px-3
                                 w-full
                                 border-gray-300

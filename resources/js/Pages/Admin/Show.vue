@@ -90,6 +90,22 @@ defineProps({ ramen: Object })
                         </div>
                     </div>
 
+                    <div class="
+                        mb-6"
+                        >
+                        <div class="
+                            mb-2
+                            font-medium
+                            ">URL
+                        </div>
+                        <div class="
+                            py-2
+                            w-full
+                            ">
+                            {{ ramen.url }}
+                        </div>
+                    </div>
+
 
                     <div class="
                         mb-6"

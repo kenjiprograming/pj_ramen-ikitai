@@ -81,6 +81,7 @@ const deleteRamen = (ramen) => {
                             <th class="table-header"></th>
                             <th class="table-header">店名</th>
                             <th class="table-header">住所</th>
+                            <th class="table-header">URL</th>
                             <th class="table-header">系統</th>
                             <th class="table-header">味</th>
                             <th class="table-header">営業時間</th>
@@ -98,9 +99,10 @@ const deleteRamen = (ramen) => {
                             <th class="table-cell w-1/12">{{ ramen.id }}</th>
                             <td class="table-cell w-1/12 text-center">{{ ramen.name }}</td>
                             <td class="table-cell w-2/12 text-center">{{ ramen.address }}</td>
+                            <td class="table-cell w-1/12 text-center">{{ ramen.url }}</td>
                             <td class="table-cell w-1/12 text-center">{{ ramen.type }}</td>
                             <td class="table-cell w-1/12 text-center">{{ ramen.taste }}</td>
-                            <td class="table-cell w-2/12 text-center">{{ ramen.time_open }} ~ {{ ramen.time_close }}</td>
+                            <td class="table-cell w-1/12 text-center">{{ ramen.time_open }} ~ {{ ramen.time_close }}</td>
                             <td class="table-cell w-1/12 text-center">{{ ramen.day_close }}</td>
                             <td class="table-cell w-3/12 text-center">
                                 <div class="
