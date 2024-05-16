@@ -17,6 +17,8 @@ class Ramen extends Model
         'image',
         'time_open',
         'time_close',
+        'time_open_2',
+        'time_close_2',
         'date_open',
         'day_close',
         'url',
