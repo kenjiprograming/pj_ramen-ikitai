@@ -19,5 +19,6 @@ class Ramen extends Model
         'time_close',
         'date_open',
         'day_close',
+        'url',
     ];
 }
