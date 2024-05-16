@@ -34,7 +34,7 @@ class RamenController extends Controller
             'taste' => ['required'],
             'time_open' => ['required'],
             'time_close' => ['required'],
-            'date_open' => ['required'],
+            'date_open' => ['nullable'],
             'day_close' => ['required'],
         ]);
 
@@ -72,7 +72,7 @@ class RamenController extends Controller
             'old_image' => ['nullable'],
             'time_open' => ['required'],
             'time_close' => ['required'],
-            'date_open' => ['required'],
+            'date_open' => ['nullable'],
             'day_close' => ['required'],
         ]);
 
