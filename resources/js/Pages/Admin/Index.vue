@@ -54,8 +54,14 @@ const deleteRamen = (ramen) => {
             rounded-t-xl
             ">
                 <Link :href="route('admin.ramen.create')" class="
-                border-b border-black
-                ">新規作成</Link>
+                    border-b border-black
+                    ">新規作成
+                </Link>
+
+                <span class="
+                    pl-4
+                    ">count: {{ ramens.length }}
+                </span>
             </div>
 
             <div class="
