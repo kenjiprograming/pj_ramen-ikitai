@@ -84,6 +84,10 @@ CTRL + C
 resources/js/Pages/Top.vue
 ```
 
+## ラーメンの割り振り
+
+![ramen-chart](./ramen-chart.jpg)
+
 ## 参考
 
 - [https://qiita.com/kai_kou/items/bfea0281689b3d376812](https://qiita.com/kai_kou/items/bfea0281689b3d376812)
