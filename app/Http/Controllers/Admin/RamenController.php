@@ -35,6 +35,8 @@ class RamenController extends Controller
             'url' => ['required'],
             'time_open' => ['required'],
             'time_close' => ['required'],
+            'time_open_2' => ['nullable'],
+            'time_close_2' => ['nullable'],
             'date_open' => ['nullable'],
             'day_close' => ['required'],
         ]);
@@ -74,6 +76,8 @@ class RamenController extends Controller
             'old_image' => ['nullable'],
             'time_open' => ['required'],
             'time_close' => ['required'],
+            'time_open_2' => ['nullable'],
+            'time_close_2' => ['nullable'],
             'date_open' => ['nullable'],
             'day_close' => ['required'],
         ]);
