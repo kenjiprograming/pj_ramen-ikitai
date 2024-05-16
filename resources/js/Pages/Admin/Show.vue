@@ -151,6 +151,10 @@ defineProps({ ramen: Object })
                             py-2
                             ">{{ ramen.time_open }} ~ {{ ramen.time_close }}
                         </div>
+                        <div class="
+                            py-2
+                            ">{{ ramen.time_open_2 }} ~ {{ ramen.time_close_2 }}
+                        </div>
                     </div>
 
                     <div class="

@@ -78,7 +78,6 @@ const deleteRamen = (ramen) => {
                         border-b-2 border-gray-200
                         h-16
                         ">
-                            <th class="table-header"></th>
                             <th class="table-header">店名</th>
                             <th class="table-header">住所</th>
                             <th class="table-header">URL</th>
@@ -96,15 +95,14 @@ const deleteRamen = (ramen) => {
                         border-b border-gray-200
                         h-14
                         ">
-                            <th class="table-cell w-1/12">{{ ramen.id }}</th>
-                            <td class="table-cell w-1/12 text-center">{{ ramen.name }}</td>
+                            <td class="table-cell w-2/12 text-center">{{ ramen.name }}</td>
                             <td class="table-cell w-2/12 text-center">{{ ramen.address }}</td>
-                            <td class="table-cell w-1/12 text-center">{{ ramen.url }}</td>
-                            <td class="table-cell w-1/12 text-center">{{ ramen.type }}</td>
+                            <td class="table-cell w-1/12 text-center"><a :href="ramen.url" target="_blank">https:// ...</a></td>
+                            <td class="table-cell w-2/12 text-center">{{ ramen.type }}</td>
                             <td class="table-cell w-1/12 text-center">{{ ramen.taste }}</td>
-                            <td class="table-cell w-1/12 text-center">{{ ramen.time_open }} ~ {{ ramen.time_close }}</td>
+                            <td class="table-cell w-1/12 text-center">{{ ramen.time_open }} ~ {{ ramen.time_close }}<br>{{ ramen.time_open_2 }} ~ {{ ramen.time_close_2 }}</td>
                             <td class="table-cell w-1/12 text-center">{{ ramen.day_close }}</td>
-                            <td class="table-cell w-3/12 text-center">
+                            <td class="table-cell w-2/12 text-center">
                                 <div class="
                                 flex justify-evenly
                                 ">

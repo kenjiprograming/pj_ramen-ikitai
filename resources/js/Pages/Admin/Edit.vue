@@ -12,14 +12,15 @@ const tastes = [
     '醤油', '塩', '味噌', '豚骨', '牛骨','煮干し', '白湯', '魚介'
 ]
 
-const time_opens = [
-    "5:00", "6:00", "7:00", "8:00",
-    "9:00", "10:00", "11:00", "12:00",
-]
-
-const time_closes = [
-    "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00",
-    "21:00", "22:00", "23:00", "24:00", "25:00", "26:00", "27:00",
+const times = [
+    "5:00", "5:30", "6:00", "6:30", "7:00", "7:30",
+    "8:00", "8:30", "9:00", "9:30", "10:00", "10:30",
+    "11:00", "11:30", "12:00", "12:30", "13:00", "13:30",
+    "14:00", "14:30", "15:00", "15:30", "16:00", "16:30",
+    "17:00", "17:30", "18:00", "18:30", "19:00", "19:30",
+    "20:00", "20:30", "21:00", "21:30", "22:00", "22:30",
+    "23:00", "23:30", "24:00", "24:30", "25:00", "25:30",
+    "26:00", "26:30", "27:00", "27:30", "28:00", "28:30",
 ]
 
 const day_closes = [
@@ -27,17 +28,19 @@ const day_closes = [
 ]
 
 const form = useForm({
-    name:       props.ramen.name,
-    address:    props.ramen.address,
-    type:       props.ramen.type,
-    taste:      props.ramen.taste,
-    url:        props.ramen.url,
-    image:      null,
-    old_image:  props.ramen.image,
-    time_open:  props.ramen.time_open,
-    time_close: props.ramen.time_close,
-    date_open:  props.ramen.date_open,
-    day_close:  props.ramen.day_close,
+    name:         props.ramen.name,
+    address:      props.ramen.address,
+    type:         props.ramen.type,
+    taste:        props.ramen.taste,
+    url:          props.ramen.url,
+    image:        null,
+    old_image:    props.ramen.image,
+    time_open:    props.ramen.time_open,
+    time_close:   props.ramen.time_close,
+    time_open_2:  props.ramen.time_open_2,
+    time_close_2: props.ramen.time_close_2,
+    date_open:    props.ramen.date_open,
+    day_close:    props.ramen.day_close,
 })
 
 const imagePreview = ref('');
@@ -56,17 +59,19 @@ const handleFileChange = (event) => {
 const submit = () => {
     router.post(route('admin.ramen.update', props.ramen.id), {
         _method: 'put',
-        name:       form.name,
-        address:    form.address,
-        type:       form.type,
-        taste:      form.taste,
-        url:        form.url,
-        image:      form.image,
-        old_image:  form.old_image,
-        time_open:  form.time_open,
-        time_close: form.time_close,
-        date_open:  form.date_open,
-        day_close:  form.day_close,
+        name:         form.name,
+        address:      form.address,
+        type:         form.type,
+        taste:        form.taste,
+        url:          form.url,
+        image:        form.image,
+        old_image:    form.old_image,
+        time_open:    form.time_open,
+        time_close:   form.time_close,
+        time_open_2:  form.time_open_2,
+        time_close_2: form.time_close_2,
+        date_open:    form.date_open,
+        day_close:    form.day_close,
     });
 }
 </script>
@@ -223,7 +228,7 @@ const submit = () => {
                             <div class="
                                 mb-2
                                 font-medium
-                                ">営業時間
+                                ">営業時間①
                             </div>
                             <div v-if="form.errors.time_open" class="
                                 text-red-500
@@ -239,7 +244,7 @@ const submit = () => {
                                 border-gray-300
                                 rounded-lg
                                 ">
-                                <option v-for="time_open in time_opens" :value="time_open">{{ time_open }}</option>
+                                <option v-for="time in times" :value="time">{{ time }}</option>
                             </select>
                             <span class="
                                 font-medium
@@ -250,7 +255,44 @@ const submit = () => {
                                 border-gray-300
                                 rounded-lg
                                 ">
-                                <option v-for="time_close in time_closes" :value="time_close">{{ time_close }}</option>
+                                <option v-for="time in times" :value="time">{{ time }}</option>
+                            </select>
+                        </div>
+
+                        <div class="
+                            mb-6
+                            ">
+                            <div class="
+                                mb-2
+                                font-medium
+                                ">営業時間②
+                            </div>
+                            <div v-if="form.errors.time_open_2" class="
+                                text-red-500
+                                ">{{ form.errors.time_open_2 }}
+                            </div>
+                            <div v-if="form.errors.time_close_2" class="
+                                text-red-500
+                                ">{{ form.errors.time_close_2 }}
+                            </div>
+                            <select v-model="form.time_open_2" class="
+                                py-2 px-3
+                                w-5/12
+                                border-gray-300
+                                rounded-lg
+                                ">
+                                <option v-for="time in times" :value="time">{{ time }}</option>
+                            </select>
+                            <span class="
+                                font-medium
+                                "> ~ </span>
+                            <select v-model="form.time_close_2" class="
+                                py-2 px-3
+                                w-5/12
+                                border-gray-300
+                                rounded-lg
+                                ">
+                                <option v-for="time in times" :value="time">{{ time }}</option>
                             </select>
                         </div>
 
