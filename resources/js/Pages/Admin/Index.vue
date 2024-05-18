@@ -97,7 +97,7 @@ const deleteRamen = (ramen) => {
                         ">
                             <td class="table-cell w-2/12 text-center">{{ ramen.name }}</td>
                             <td class="table-cell w-2/12 text-center">{{ ramen.address }}</td>
-                            <td class="table-cell w-1/12 text-center"><a :href="ramen.url" target="_blank">https:// ...</a></td>
+                            <td class="table-cell w-1/12 text-center"><a :href="ramen.url" target="_blank" class="border-b border-black">https:// ...</a></td>
                             <td class="table-cell w-2/12 text-center">{{ ramen.type }}</td>
                             <td class="table-cell w-1/12 text-center">{{ ramen.taste }}</td>
                             <td class="table-cell w-1/12 text-center">{{ ramen.time_open }} ~ {{ ramen.time_close }}<br>{{ ramen.time_open_2 }} ~ {{ ramen.time_close_2 }}</td>
