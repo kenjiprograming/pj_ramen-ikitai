@@ -40,6 +40,9 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::post('/ramen/create', [RamenController::class, 'store'])
         ->name('ramen.store');
 
+    Route::get('/ramen/generate', [RamenController::class, 'generate'])
+        ->name('ramen.generate');
+
     Route::get('/ramen/{ramen}', [RamenController::class, 'show'])
         ->name('ramen.show');
 

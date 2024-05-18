@@ -108,4 +108,10 @@ class RamenController extends Controller
         return to_route('admin.ramen.index')
             ->with('message', 'Ramen Delete Successfully');
     }
+
+    public function generate(Request $request)
+    {
+        $ramens = Ramen::all();
+        Storage::put('ramen.txt', json_encode($ramens));
+    }
 }

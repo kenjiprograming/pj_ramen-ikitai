@@ -35,6 +35,26 @@ const deleteRamen = (ramen) => {
         </span>
     </div>
 
+    <div class="
+        bg-gray-200
+        py-4
+        ">
+        <div class="
+            mx-auto
+            w-11/12
+            text-right
+            ">
+            <Link :href="route('admin.ramen.generate')" class="
+                curosor-pointer
+                px-3 py-1
+                border border-yellow-400
+                font-medium text-yellow-500
+                rounded-md
+                hover:bg-yellow-500 hover:text-white transition-all
+                ">生成</Link>
+        </div>
+    </div>
+
 
     <div class="
     bg-gray-200
