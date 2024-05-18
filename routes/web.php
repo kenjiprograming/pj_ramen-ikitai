@@ -3,6 +3,7 @@
 use App\Http\Controllers\ApiTestController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\RamenController;
+use App\Http\Controllers\RamenController as FrontRamenController;
 use App\Http\Controllers\TopController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -56,6 +57,12 @@ Route::prefix('admin')->name('admin.')->group(function () {
         ->name('ramen.destroy');
 });
 
+Route::prefix('ramen')->name('ramen.')->group(function () {
+
+    Route::get('/', [FrontRamenController::class, 'index'])
+        ->name('index');
+
+});
 
 
 Route::get('/dashboard', function () {
@@ -70,7 +77,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/ramens', [ApiTestController::class, 'index']);
 Route::post('/ramens', [ApiTestController::class, 'post']);
 Route::get('/concurrentRamens', [ApiTestController::class, 'concurrent']);
 
