@@ -65,6 +65,9 @@ Route::prefix('ramen')->name('ramen.')->group(function () {
     Route::get('/search', [FrontRamenController::class, 'search'])
         ->name('search');
 
+    Route::get('/show', [FrontRamenController::class, 'show'])
+        ->name('show');
+
 });
 
 

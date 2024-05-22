@@ -3,7 +3,8 @@
 /public/build
 /public/hot
 /public/storage
-/public/upload
+/public/upload/*
+/public/image/*
 /storage/*.key
 /vendor
 .env
@@ -18,3 +19,4 @@ yarn-error.log
 /.fleet
 /.idea
 /.vscode
+ramen-chart.jpg

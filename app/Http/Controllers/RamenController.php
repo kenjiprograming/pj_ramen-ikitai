@@ -36,4 +36,18 @@ class RamenController extends Controller
 
         dd($result);
     }
+
+    public function show(Request $request)
+    {
+        $json = Storage::get('ramen.txt');
+        $data = json_decode($json);
+        $id = $request->get('id');
+
+        $result = array_filter($data, function ($datum) use ($id) {
+            return strpos($datum->id, $id) !== false;
+        });
+
+
+        dd($result);
+    }
 }
