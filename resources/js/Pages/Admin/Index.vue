@@ -44,10 +44,17 @@ const deleteRamen = (ramen) => {
             w-11/12
             text-right
             ">
-            <Link :href="route('admin.ramen.generate')" class="
+            <a :href="route('ramen.index')" target="_blank" class="
                 curosor-pointer
                 px-3 py-1
-                border border-yellow-400
+                border-b border-blue-400
+                font-medium text-blue-500
+                hover:bg-blue-500 hover:text-white transition-all
+                ">トップページを見る</a>
+            <Link :href="route('admin.ramen.generate')" class="
+                curosor-pointer
+                px-4 py-2 ms-4
+                border-2 border-yellow-400
                 font-medium text-yellow-500
                 rounded-md
                 hover:bg-yellow-500 hover:text-white transition-all
