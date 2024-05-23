@@ -102,7 +102,10 @@ defineProps({ ramen: Object })
                             py-2
                             w-full
                             ">
-                            {{ ramen.url }}
+                            <a :href="ramen.url" target="_blank" class="
+                                border-b border-black
+                                ">{{ ramen.url }}
+                            </a>
                         </div>
                     </div>
 
