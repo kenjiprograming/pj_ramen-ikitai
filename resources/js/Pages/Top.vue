@@ -3,6 +3,18 @@ import { Head, Link } from '@inertiajs/vue3';
 import { ref } from 'vue';
 
 const general = ref('');
+
+const times = [
+    "0:00", "0:30", "1:00", "1:30", "2:00", "2:30",
+    "3:00", "3:30", "4:00", "4:30", "5:00", "5:30",
+    "6:00", "6:30", "7:00", "7:30", "8:00", "8:30",
+    "9:00", "9:30", "10:00", "10:30", "11:00", "11:30",
+    "12:00", "12:30", "13:00", "13:30", "14:00", "14:30",
+    "15:00", "15:30", "16:00", "16:30", "17:00", "17:30",
+    "18:00", "18:30", "19:00", "19:30", "20:00", "20:30",
+    "21:00", "21:30", "22:00", "22:30", "23:00", "23:30",
+]
+const time = ref("");
 </script>
 
 <template>
@@ -62,109 +74,15 @@ const general = ref('');
                 </div>
 
                 <!-- 業時間から探す -->
+                <!-- TODO: 「対象の時間がやっているか調べる」にする -->
                 <h2 class="mt-10 mb-6 text-xl font-bold text-gray-700">営業時間から探す</h2>
                     <div class="flex mb-4">
-                        <select class="form-select w-full border-yellow-500 rounded-md border" id="time-select">
-                            <option value="00:00">00:00</option>
-                            <option value="00:30">00:30</option>
-                            <option value="01:00">01:00</option>
-                            <option value="01:30">01:30</option>
-                            <option value="01:30">02:00</option>
-                            <option value="01:30">02:30</option>
-                            <option value="01:30">03:00</option>
-                            <option value="01:30">03:30</option>
-                            <option value="01:30">04:00</option>
-                            <option value="01:30">04:30</option>
-                            <option value="01:30">05:00</option>
-                            <option value="01:30">05:30</option>
-                            <option value="01:30">06:00</option>
-                            <option value="01:30">06:30</option>
-                            <option value="01:30">07:00</option>
-                            <option value="01:30">07:30</option>
-                            <option value="01:30">08:00</option>
-                            <option value="01:30">08:30</option>
-                            <option value="01:30">09:00</option>
-                            <option value="01:30">09:30</option>
-                            <option value="01:30">10:00</option>
-                            <option value="01:30">10:30</option>
-                            <option value="01:30">11:00</option>
-                            <option value="01:30">11:30</option>
-                            <option value="01:30">12:00</option>
-                            <option value="01:30">12:30</option>
-                            <option value="01:30">13:00</option>
-                            <option value="01:30">13:30</option>
-                            <option value="01:30">14:00</option>
-                            <option value="01:30">14:30</option>
-                            <option value="01:30">15:00</option>
-                            <option value="01:30">15:30</option>
-                            <option value="01:30">16:00</option>
-                            <option value="01:30">16:30</option>
-                            <option value="01:30">17:00</option>
-                            <option value="01:30">17:30</option>
-                            <option value="01:30">18:00</option>
-                            <option value="01:30">18:30</option>
-                            <option value="01:30">19:00</option>
-                            <option value="01:30">19:30</option>
-                            <option value="01:30">20:00</option>
-                            <option value="01:30">20:30</option>
-                            <option value="01:30">21:00</option>
-                            <option value="01:30">21:30</option>
-                            <option value="01:30">22:00</option>
-                            <option value="01:30">22:30</option>
-                            <option value="01:30">23:00</option>
-                            <option value="01:30">23:30</option>
+                        <select v-model="time" class="form-select w-full border-yellow-500 rounded-md border" id="time-select">
+                            <option v-for="time in times" :value="time">{{ time }}</option>
                         </select>
-                        <p class="flex items-center ml-2 mr-2">〜</p>
-                        <select class="form-select w-full border-yellow-500 rounded-md border" id="time-select">
-                        <option value="00:00">00:00</option>
-                        <option value="00:30">00:30</option>
-                        <option value="01:00">01:00</option>
-                        <option value="01:30">01:30</option>
-                        <option value="01:30">02:00</option>
-                        <option value="01:30">02:30</option>
-                        <option value="01:30">03:00</option>
-                        <option value="01:30">03:30</option>
-                        <option value="01:30">04:00</option>
-                        <option value="01:30">04:30</option>
-                        <option value="01:30">05:00</option>
-                        <option value="01:30">05:30</option>
-                        <option value="01:30">06:00</option>
-                        <option value="01:30">06:30</option>
-                        <option value="01:30">07:00</option>
-                        <option value="01:30">07:30</option>
-                        <option value="01:30">08:00</option>
-                        <option value="01:30">08:30</option>
-                        <option value="01:30">09:00</option>
-                        <option value="01:30">09:30</option>
-                        <option value="01:30">10:00</option>
-                        <option value="01:30">10:30</option>
-                        <option value="01:30">11:00</option>
-                        <option value="01:30">11:30</option>
-                        <option value="01:30">12:00</option>
-                        <option value="01:30">12:30</option>
-                        <option value="01:30">13:00</option>
-                        <option value="01:30">13:30</option>
-                        <option value="01:30">14:00</option>
-                        <option value="01:30">14:30</option>
-                        <option value="01:30">15:00</option>
-                        <option value="01:30">15:30</option>
-                        <option value="01:30">16:00</option>
-                        <option value="01:30">16:30</option>
-                        <option value="01:30">17:00</option>
-                        <option value="01:30">17:30</option>
-                        <option value="01:30">18:00</option>
-                        <option value="01:30">18:30</option>
-                        <option value="01:30">19:00</option>
-                        <option value="01:30">19:30</option>
-                        <option value="01:30">20:00</option>
-                        <option value="01:30">20:30</option>
-                        <option value="01:30">21:00</option>
-                        <option value="01:30">21:30</option>
-                        <option value="01:30">22:00</option>
-                        <option value="01:30">22:30</option>
-                        <option value="01:30">23:00</option>
-                        <option value="01:30">23:30</option>
-                        </select>
+                        <div class="w-1/12 bg-blue-300 text-center">
+                            <Link v-if="time" :href="route('ramen.search', { time: time })" class="border-2 border-blue-500">探す</Link>
+                        </div>
                     </div>
                     <div class="">
                         <div class="bg-orange-500 w-full flex rounded hover:bg-white">

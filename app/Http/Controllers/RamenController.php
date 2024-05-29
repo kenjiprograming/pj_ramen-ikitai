@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use DateTimeImmutable;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Inertia\Response;
@@ -42,6 +43,23 @@ class RamenController extends Controller
                 }
 
                 return !in_array(false, $judges);
+            }
+
+            if (array_key_exists('time', $params)) {
+                // TODO: 2:00とかの計算を考える
+                $time_open1  = new DateTimeImmutable($datum->time_open);
+                $time_close1 = new DateTimeImmutable($datum->time_close);
+                $time_open2  = new DateTimeImmutable($datum->time_open_2);
+                $time_close2 = new DateTimeImmutable($datum->time_close_2);
+
+                $time = new DateTimeImmutable($params['time']);
+
+                dd($time);
+
+                $isWithinRange[] = ($time >= $time_open1 && $time <= $time_close1);
+                $isWithinRange[] = ($time >= $time_open2 && $time <= $time_close2);
+
+                return in_array(true, $isWithinRange);
             }
 
             foreach ($params as $key => $value) {
