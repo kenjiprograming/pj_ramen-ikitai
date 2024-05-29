@@ -1,5 +1,5 @@
 <script setup>
-import { Head } from '@inertiajs/vue3';
+import { Head, Link } from '@inertiajs/vue3';
 
 </script>
 
@@ -44,18 +44,18 @@ import { Head } from '@inertiajs/vue3';
                 <!-- ラーメンの系統から探す -->
                 <h2 class="mt-10 mb-6 text-xl font-bold text-gray-700">ラーメンの系統から探す</h2>
                 <div class="flex flex-wrap">
-                    <a href="#" class="border-yellow-500 rounded-md border bg-white block w-[49%] mr-[1%] mb-[1%] hover:bg-orange-500">
+                    <Link :href="route('ramen.search', { type: '濃厚太麺' })" class="border-yellow-500 rounded-md border bg-white block w-[49%] mr-[1%] mb-[1%] hover:bg-orange-500">
                         <p class="text-gray-700 text-center my-5 font-semibold hover:text-white">濃厚 太麺</p>
-                    </a>
-                    <a href="#" class="border-yellow-500 rounded-md border bg-white block w-[49%] mb-[1%] hover:bg-orange-500">
+                    </Link>
+                    <Link :href="route('ramen.search', { type: '濃厚細麺' })" class="border-yellow-500 rounded-md border bg-white block w-[49%] mb-[1%] hover:bg-orange-500">
                         <p class="text-gray-700 text-center my-5 font-semibold hover:text-white">濃厚 細麺</p>
-                    </a>
-                    <a href="#" class="border-yellow-500 rounded-md border bg-white block w-[49%] mr-[1%] mb-[1%] hover:bg-orange-500">
+                    </Link>
+                    <Link :href="route('ramen.search', { type: 'あっさり太麺' })" class="border-yellow-500 rounded-md border bg-white block w-[49%] mr-[1%] mb-[1%] hover:bg-orange-500">
                         <p class="text-gray-700 text-center my-5 font-semibold hover:text-white">あっさり 太麺</p>
-                    </a>
-                    <a href="#" class="border-yellow-500 rounded-md border bg-white block w-[49%] mb-[1%] hover:bg-orange-500">
+                    </Link>
+                    <Link :href="route('ramen.search', { type: 'あっさり細麺' })" class="border-yellow-500 rounded-md border bg-white block w-[49%] mb-[1%] hover:bg-orange-500">
                         <p class="text-gray-700 text-center my-5 font-semibold hover:text-white">あっさり 細麺</p>
-                    </a>
+                    </Link>
                 </div>
 
                 <!-- 業時間から探す -->
