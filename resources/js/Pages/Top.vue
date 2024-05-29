@@ -1,5 +1,5 @@
 <script setup>
-import { Head, Link } from '@inertiajs/vue3';
+import { Head, Link, router } from '@inertiajs/vue3';
 import { ref } from 'vue';
 
 const general = ref('');
@@ -14,7 +14,16 @@ const times = [
     "18:00", "18:30", "19:00", "19:30", "20:00", "20:30",
     "21:00", "21:30", "22:00", "22:30", "23:00", "23:30",
 ]
-const time = ref("");
+
+const time = ref('');
+
+const searchNow = () => {
+    const hours = (new Date()).getHours().toString().padStart(2, '0');
+    const minutes = (new Date()).getMinutes().toString().padStart(2, '0');
+    time.value = `${hours}:${minutes}`;
+    router.get(route('ramen.search'), { time: time.value });
+    time.value = '';
+}
 </script>
 
 <template>
@@ -86,9 +95,9 @@ const time = ref("");
                     </div>
                     <div class="">
                         <div class="bg-orange-500 w-full flex rounded hover:bg-white">
-                            <a href="#" class="block text-white text-center w-full py-4 font-semibold hover:text-orange-500">
+                            <Link @click="searchNow" class="block text-white text-center w-full py-4 font-semibold hover:text-orange-500">
                                 現在営業中のお店一覧　→
-                            </a>
+                            </Link>
                         </div>
                     </div>
 
