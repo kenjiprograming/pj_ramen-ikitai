@@ -25,6 +25,25 @@ class RamenController extends Controller
         $params = $request->all();
 
         $result[] = array_filter($data, function ($datum) use ($params) {
+            if (array_key_exists('all', $params)) {
+                $judges = [];
+                $values = explode(" ", $params['all']);
+
+                foreach ($values as $value) {
+                    if (str_contains($datum->name, $value)    ||
+                        str_contains($datum->address, $value) ||
+                        str_contains($datum->type, $value)    ||
+                        str_contains($datum->taste, $value)
+                    ) {
+                        $judges[] = true;
+                    } else {
+                        $judges[] = false;
+                    }
+                }
+
+                return !in_array(false, $judges);
+            }
+
             foreach ($params as $key => $value) {
                 if (!isset($datum->$key) || strpos($datum->$key, $value) === false) {
                     return false;

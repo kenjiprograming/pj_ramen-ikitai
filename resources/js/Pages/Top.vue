@@ -1,6 +1,8 @@
 <script setup>
 import { Head, Link } from '@inertiajs/vue3';
+import { ref } from 'vue';
 
+const general = ref('');
 </script>
 
 <template>
@@ -24,7 +26,8 @@ import { Head, Link } from '@inertiajs/vue3';
                         <div class="ms-1 me-auto text-white font-bold">ラーメンを探す</div>
                     </div>
                     <div class="w-60 mx-auto ">
-                        <input type="text" class="w-full border-yellow-500 rounded-md border">
+                        <input type="text" class="w-full border-yellow-500 rounded-md border" v-model="general">
+                        <Link v-if="general" :href="route('ramen.search', { all: general })" class="bg-blue-500">探す</Link>
                     </div>
                 </div>
             </div>
