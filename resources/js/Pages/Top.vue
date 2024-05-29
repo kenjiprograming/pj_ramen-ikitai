@@ -59,7 +59,7 @@ import { Head, Link } from '@inertiajs/vue3';
                 </div>
 
                 <!-- 業時間から探す -->
-                <h2 class="mt-10 mb-6 text-xl font-bold text-gray-700">業時間から探す</h2>
+                <h2 class="mt-10 mb-6 text-xl font-bold text-gray-700">営業時間から探す</h2>
                     <div class="flex mb-4">
                         <select class="form-select w-full border-yellow-500 rounded-md border" id="time-select">
                             <option value="00:00">00:00</option>
