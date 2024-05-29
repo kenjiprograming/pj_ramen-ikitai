@@ -174,18 +174,30 @@ import { Head, Link } from '@inertiajs/vue3';
                 <!-- 味から探す -->
                 <h2 class="mt-10 mb-6 text-xl font-bold text-gray-700">味から探す</h2>
                 <div class="flex flex-wrap">
-                    <a href="#" class="border-yellow-500 rounded-md border bg-white block w-[49%] mr-[1%] mb-[1%] hover:bg-orange-500">
+                    <Link :href="route('ramen.search', { taste: '醤油' })" class="border-yellow-500 rounded-md border bg-white block w-[49%] mr-[1%] mb-[1%] hover:bg-orange-500">
                         <p class="text-gray-700 text-center my-5 font-semibold hover:text-white">醤油</p>
-                    </a>
-                    <a href="#" class="border-yellow-500 rounded-md border bg-white block w-[49%] mb-[1%] hover:bg-orange-500">
+                    </Link>
+                    <Link :href="route('ramen.search', { taste: '塩' })" class="border-yellow-500 rounded-md border bg-white block w-[49%] mb-[1%] hover:bg-orange-500">
                         <p class="text-gray-700 text-center my-5 font-semibold hover:text-white">塩</p>
-                    </a>
-                    <a href="#" class="border-yellow-500 rounded-md border bg-white block w-[49%] mr-[1%] mb-[1%] hover:bg-orange-500">
+                    </Link>
+                    <Link :href="route('ramen.search', { taste: '味噌' })" class="border-yellow-500 rounded-md border bg-white block w-[49%] mr-[1%] mb-[1%] hover:bg-orange-500">
                         <p class="text-gray-700 text-center my-5 font-semibold hover:text-white">味噌</p>
-                    </a>
-                    <a href="#" class="border-yellow-500 rounded-md border bg-white block w-[49%] mb-[1%] hover:bg-orange-500">
+                    </Link>
+                    <Link :href="route('ramen.search', { taste: '豚骨' })" class="border-yellow-500 rounded-md border bg-white block w-[49%] mb-[1%] hover:bg-orange-500">
                         <p class="text-gray-700 text-center my-5 font-semibold hover:text-white">豚骨</p>
-                    </a>
+                    </Link>
+                    <Link :href="route('ramen.search', { taste: '牛骨' })" class="border-yellow-500 rounded-md border bg-white block w-[49%] mr-[1%] mb-[1%] hover:bg-orange-500">
+                        <p class="text-gray-700 text-center my-5 font-semibold hover:text-white">牛骨</p>
+                    </Link>
+                    <Link :href="route('ramen.search', { taste: '煮干し' })" class="border-yellow-500 rounded-md border bg-white block w-[49%] mb-[1%] hover:bg-orange-500">
+                        <p class="text-gray-700 text-center my-5 font-semibold hover:text-white">煮干し</p>
+                    </Link>
+                    <Link :href="route('ramen.search', { taste: '白湯' })" class="border-yellow-500 rounded-md border bg-white block w-[49%] mr-[1%] mb-[1%] hover:bg-orange-500">
+                        <p class="text-gray-700 text-center my-5 font-semibold hover:text-white">白湯</p>
+                    </Link>
+                    <Link :href="route('ramen.search', { taste: '魚介' })" class="border-yellow-500 rounded-md border bg-white block w-[49%] mb-[1%] hover:bg-orange-500">
+                        <p class="text-gray-700 text-center my-5 font-semibold hover:text-white">魚介</p>
+                    </Link>
                 </div>
                 <!-- 最近オープンしたラーメン店 -->
                 <div class="bg-opacity-[60] bg-[3E2502]">
