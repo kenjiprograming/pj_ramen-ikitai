@@ -30,9 +30,7 @@ deploy_to_server:
     - mkdir -p ~/.ssh
     - 'echo "$SSH_PRIVATE_KEY" | ssh-add -'
     - 'echo "StrictHostKeyChecking no" > ~/.ssh/config'
-    - > 
-      ssh -p 8022 c3801632@www315.conoha.ne.jp <<EOF
-      cd /home/c3801632/public_html/ramen-ikitai.com/ramen-ikitai
-      git pull origin master
-      ~/bin/composer install
-      EOF
+    - ssh -p 8022 c3801632@www315.conoha.ne.jp
+    - cd /home/c3801632/public_html/ramen-ikitai.com/ramen-ikitai
+    - git pull origin master
+    - ~/bin/composer install
