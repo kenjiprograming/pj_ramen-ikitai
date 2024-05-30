@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use DateTime;
 use DateTimeImmutable;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -15,7 +16,9 @@ class RamenController extends Controller
         $json = Storage::get('ramen.txt');
         $data = json_decode($json);
 
-        return Inertia::render('Top', ['data' => $data]);
+        $recents = $this->getRecents($data);
+
+        return Inertia::render('Top', ['data' => $data, 'resents' => $recents]);
     }
 
     public function search(Request $request)
@@ -93,5 +96,16 @@ class RamenController extends Controller
 
 
         dd($result);
+    }
+
+    private function getRecents($data)
+    {
+        $oneYearAgo = (new DateTimeImmutable('-1 year'))->setTime(0, 0, 0);
+
+        return array_filter($data, function ($datum) use ($oneYearAgo) {
+            if ($datum->date_open) {
+                return (new DateTimeImmutable($datum->date_open)) > $oneYearAgo;
+            }
+        });
     }
 }
