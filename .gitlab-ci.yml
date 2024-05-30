@@ -10,16 +10,24 @@ deploy_to_server:
     SSH_PRIVATE_KEY: $SSH_KEY
 #  before_script:
   script:
+    # - mkdir -p ~/.ssh
+    # - chmod 700 ~/.ssh
+    # - touch ~/.ssh/kenji_first_rsa
+    # - echo "$SSH_PRIVATE_KEY" > ~/.ssh/kenji_first_rsa
+    # - chmod 600 ~/.ssh/kenji_first_rsa
+    # - touch ~/.ssh/config
+    # - cat <<EOF > ~/.ssh/config
+      # Host kenji_first
+        # HostName        www315.conoha.ne.jp
+        # Port            8022
+        # User            c3801632
+        # IdentityFile    ~/.ssh/kenji_first_rsa
+      # EOL
+    
+    - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+    - eval $(ssh-agent -s)
+    - ssh-add <(echo "$SSH_PRIVATE_KEY")
     - mkdir -p ~/.ssh
-    - chmod 700 ~/.ssh
-    - touch ~/.ssh/kenji_first_rsa
-    - echo "$SSH_PRIVATE_KEY" > ~/.ssh/kenji_first_rsa
-    - chmod 600 ~/.ssh/kenji_first_rsa
-    - touch ~/.ssh/config
-    - cat <<EOF > ~/.ssh/config
-      Host kenji_first
-        HostName        www315.conoha.ne.jp
-        Port            8022
-        User            c3801632
-        IdentityFile    ~/.ssh/kenji_first_rsa
-      EOL
+    - 'echo "$SSH_PRIVATE_KEY" | ssh-add -'
+    - 'echo "StrictHostKeyChecking no" > ~/.ssh/config'
+    - ssh -p 8022 c3801632@www315.conoha.ne.jp "echo 'I am in!' && uptime"
