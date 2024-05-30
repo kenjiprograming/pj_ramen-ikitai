@@ -46,15 +46,22 @@ class RamenController extends Controller
             }
 
             if (array_key_exists('time', $params)) {
-                // TODO: 2:00とかの計算を考える
-                $time_open1  = new DateTimeImmutable($datum->time_open);
-                $time_close1 = new DateTimeImmutable($datum->time_close);
-                $time_open2  = new DateTimeImmutable($datum->time_open_2);
-                $time_close2 = new DateTimeImmutable($datum->time_close_2);
+                $time_open1 = (new DateTimeImmutable('0:00') <= new DateTimeImmutable($datum->time_open) && new DateTimeImmutable($datum->time_open) <= new DateTimeImmutable('5:00'))
+                    ? (new DateTimeImmutable($datum->time_open))->modify('+1 day')
+                    : new DateTimeImmutable($datum->time_open);
+                $time_close1 = (new DateTimeImmutable('0:00') <= new DateTimeImmutable($datum->time_close) && new DateTimeImmutable($datum->time_close) <= new DateTimeImmutable('5:00'))
+                    ? (new DateTimeImmutable($datum->time_close))->modify('+1 day')
+                    : new DateTimeImmutable($datum->time_close);
+                $time_open2 = (new DateTimeImmutable('0:00') <= new DateTimeImmutable($datum->time_open_2) && new DateTimeImmutable($datum->time_open_2) <= new DateTimeImmutable('5:00'))
+                    ? (new DateTimeImmutable($datum->time_open_2))->modify('+1 day')
+                    : new DateTimeImmutable($datum->time_open_2);
+                $time_close2 = (new DateTimeImmutable('0:00') <= new DateTimeImmutable($datum->time_close_2) && new DateTimeImmutable($datum->time_close_2) <= new DateTimeImmutable('5:00'))
+                    ? (new DateTimeImmutable($datum->time_close_2))->modify('+1 day')
+                    : new DateTimeImmutable($datum->time_close_2);
 
-                $time = new DateTimeImmutable($params['time']);
-
-                dd($time);
+                $time = (new DateTimeImmutable('0:00') <= new DateTimeImmutable($params['time']) && new DateTimeImmutable($params['time']) <= new DateTimeImmutable('5:00'))
+                    ? (new DateTimeImmutable($params['time']))->modify('+1 day')
+                    : new DateTimeImmutable($params['time']);
 
                 $isWithinRange[] = ($time >= $time_open1 && $time <= $time_close1);
                 $isWithinRange[] = ($time >= $time_open2 && $time <= $time_close2);
