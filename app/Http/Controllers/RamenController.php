@@ -18,7 +18,7 @@ class RamenController extends Controller
 
         $recents = $this->getRecents($data);
 
-        return Inertia::render('Top', ['data' => $data, 'resents' => $recents]);
+        return Inertia::render('Top', ['data' => $data, 'recents' => $recents]);
     }
 
     public function search(Request $request)

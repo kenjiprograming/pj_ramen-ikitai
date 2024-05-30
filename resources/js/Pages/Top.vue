@@ -2,6 +2,7 @@
 import { Head, Link, router } from '@inertiajs/vue3';
 import { ref } from 'vue';
 
+defineProps({ recents: Object })
 const general = ref('');
 
 const times = [
@@ -134,25 +135,10 @@ const searchNow = () => {
                 <div class="bg-opacity-[60] bg-[3E2502]">
                     <h2 class="mt-10 mb-6 text-xl font-bold text-gray-700">最近オープンしたラーメン店</h2>
                     <div class="flex">
-                        <div class="mr-4">
-                            <img src="/image/noimg.png" alt="画像なし">
-                            <p>〇〇商店</p>
-                        </div>
-                        <div class="mr-4">
-                            <img src="/image/noimg.png" alt="画像なし">
-                            <p>〇〇屋</p>
-                        </div>
-                        <div class="mr-4">
-                            <img src="/image/noimg.png" alt="画像なし">
-                            <p>〇〇商店</p>
-                        </div>
-                        <div class="mr-4">
-                            <img src="/image/noimg.png" alt="画像なし">
-                            <p>〇〇商店</p>
-                        </div>
-                        <div class="mr-4">
-                            <img src="/image/noimg.png" alt="画像なし">
-                            <p>〇〇商店</p>
+                        <div v-for="recent in recents" class="mr-4 h-64">
+                            <img v-if="recent.image" :src="'/upload/'+ recent.image" :alt="recent.image">
+                            <img v-else src="/image/noimg.png" alt="画像なし">
+                            <p>{{ recent.name }}</p>
                         </div>
                     </div>
                 </div>
