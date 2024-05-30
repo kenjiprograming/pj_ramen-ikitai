@@ -48,7 +48,9 @@ const searchNow = () => {
                     </div>
                     <div class="w-60 mx-auto ">
                         <input type="text" class="w-full border-yellow-500 rounded-md border" v-model="general">
-                        <Link v-if="general" :href="route('ramen.search', { all: general })" class="bg-blue-500">探す</Link>
+                        <div v-if="general" class="w-1/4 mx-auto mt-2 bg-white rounded border border-white hover:bg-orange-500 text-center leading-8">
+                            <Link :href="route('ramen.search', { all: general })" class="block text-orange-500 hover:text-white font-semibold">検索</Link>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -82,15 +84,14 @@ const searchNow = () => {
                     </Link>
                 </div>
 
-                <!-- 業時間から探す -->
-                <!-- TODO: 「対象の時間がやっているか調べる」にする -->
+                <!-- 営業時間から探す -->
                 <h2 class="mt-10 mb-6 text-xl font-bold text-gray-700">営業時間から探す</h2>
                     <div class="flex mb-4">
                         <select v-model="time" class="form-select w-full border-yellow-500 rounded-md border" id="time-select">
                             <option v-for="time in times" :value="time">{{ time }}</option>
                         </select>
-                        <div class="w-1/12 bg-blue-300 text-center">
-                            <Link v-if="time" :href="route('ramen.search', { time: time })" class="border-2 border-blue-500">探す</Link>
+                        <div v-if="time" class="w-1/12 bg-orange-500 rounded hover:bg-white ms-2 text-center leading-10">
+                            <Link :href="route('ramen.search', { time: time })" class="w-full text-gray-700 hover:text-orange-500 font-semibold">検索</Link>
                         </div>
                     </div>
                     <div class="">
