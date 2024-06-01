@@ -19,7 +19,7 @@ deploy_to_server:
 #    - ssh-add <(echo "$SSH_PRIVATE_KEY")
     - ssh -p 8022 c3801632@www315.conoha.ne.jp -C "cd /home/c3801632/public_html/ramen-ikitai.com/ramen-ikitai && git fetch -p && git pull origin master"
     - ssh -p 8022 c3801632@www315.conoha.ne.jp -C "cd /home/c3801632/public_html/ramen-ikitai.com/ramen-ikitai && ~/bin/composer install"
-    - ssh -p 8022 c3801632@www315.conoha.ne.jp -C "volta install node && node -v"
+    - ssh -p 8022 c3801632@www315.conoha.ne.jp -C "volta install node@16.20.0 && node -v"
     - ssh -p 8022 c3801632@www315.conoha.ne.jp -C "cd /home/c3801632/public_html/ramen-ikitai.com/ramen-ikitai && ~/.volta/bin/npm install"
     - ssh -p 8022 c3801632@www315.conoha.ne.jp -C "cd /home/c3801632/public_html/ramen-ikitai.com/ramen-ikitai && ~/.volta/bin/npm run build"
   after_script:
