@@ -1,6 +1,13 @@
 stages:
   - deploy
 
+before_script:
+  - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+  - eval $(ssh-agent -s)
+  - echo "$SSH_PRIVATE_KEY" | ssh-add -
+  - mkdir -p ~/.ssh
+  - 'echo "StrictHostKeyChecking no" > ~/.ssh/config'
+
 deploy_to_server:
   stage: deploy
   image: ubuntu:latest
@@ -8,12 +15,15 @@ deploy_to_server:
     - master
   variables:
     SSH_PRIVATE_KEY: $SSH_KEY
-#  before_script:
   script:
-    - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
-    - eval $(ssh-agent -s)
-    - ssh-add <(echo "$SSH_PRIVATE_KEY")
-    - mkdir -p ~/.ssh
-    - 'echo "$SSH_PRIVATE_KEY" | ssh-add -'
-    - 'echo "StrictHostKeyChecking no" > ~/.ssh/config'
-    - ssh -p 8022 c3801632@www315.conoha.ne.jp -C "cd /home/c3801632/public_html/ramen-ikitai.com/ramen-ikitai && git fetch -p && git pull origin master && ~/bin/composer install && ~/.volta/bin/npm run build"
+#    - ssh-add <(echo "$SSH_PRIVATE_KEY")
+    - ssh -p 8022 c3801632@www315.conoha.ne.jp -C "cd /home/c3801632/public_html/ramen-ikitai.com/ramen-ikitai && git fetch -p && git pull origin master"
+    - ssh -p 8022 c3801632@www315.conoha.ne.jp -C "~/bin/composer install"
+    - ssh -p 8022 c3801632@www315.conoha.ne.jp -C "~/.volta/bin/npm install"
+    - ssh -p 8022 c3801632@www315.conoha.ne.jp -C "~/.volta/bin/npm run build"
+  after_script:
+    - echo 'Deployment completed'
+  environment:
+    name: production
+    url: https://www.ramen-ikitai.com
+  when: on_success
