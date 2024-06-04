@@ -28,7 +28,7 @@ class RamenController extends Controller
 
         $params = $request->all();
 
-        $result[] = array_filter($data, function ($datum) use ($params) {
+        $result['ramens'] = array_filter($data, function ($datum) use ($params) {
             if (array_key_exists('all', $params)) {
                 $judges = [];
                 $values = explode(" ", $params['all']);
@@ -80,8 +80,7 @@ class RamenController extends Controller
             return true;
         });
 
-
-        dd($result);
+        return Inertia::render('Search', ['ramens' => $result['ramens']]);
     }
 
     public function show(Request $request)
