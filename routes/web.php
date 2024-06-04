@@ -5,6 +5,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\RamenController;
 use App\Http\Controllers\RamenController as FrontRamenController;
 use App\Http\Controllers\TopController;
+use App\Http\Controllers\DetailController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -76,6 +77,7 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/', [TopController::class, 'index'])->name('top.index');
+Route::get('/detail', [DetailController::class, 'index'])->name('detail.index');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
