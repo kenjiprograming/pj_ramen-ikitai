@@ -113,5 +113,7 @@ class RamenController extends Controller
     {
         $ramens = Ramen::all();
         Storage::put('ramen.txt', json_encode($ramens));
+        return to_route('admin.ramen.index')
+            ->with('message', 'Ramen Generate Successfully');
     }
 }
