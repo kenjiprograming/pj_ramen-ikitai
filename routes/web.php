@@ -30,31 +30,33 @@ Route::get('/admin', function () {
     ]);
 });
 
-Route::prefix('admin')->name('admin.')->group(function () {
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::prefix('admin')->name('admin.')->group(function () {
 
-    Route::get('/ramen', [RamenController::class, 'index'])
-        ->name('ramen.index');
+        Route::get('/ramen', [RamenController::class, 'index'])
+            ->name('ramen.index');
 
-    Route::get('/ramen/create', [RamenController::class, 'create'])
-        ->name('ramen.create');
+        Route::get('/ramen/create', [RamenController::class, 'create'])
+            ->name('ramen.create');
 
-    Route::post('/ramen/create', [RamenController::class, 'store'])
-        ->name('ramen.store');
+        Route::post('/ramen/create', [RamenController::class, 'store'])
+            ->name('ramen.store');
 
-    Route::get('/ramen/generate', [RamenController::class, 'generate'])
-        ->name('ramen.generate');
+        Route::get('/ramen/generate', [RamenController::class, 'generate'])
+            ->name('ramen.generate');
 
-    Route::get('/ramen/{ramen}', [RamenController::class, 'show'])
-        ->name('ramen.show');
+        Route::get('/ramen/{ramen}', [RamenController::class, 'show'])
+            ->name('ramen.show');
 
-    Route::get('/ramen/{ramen}/edit', [RamenController::class, 'edit'])
-        ->name('ramen.edit');
+        Route::get('/ramen/{ramen}/edit', [RamenController::class, 'edit'])
+            ->name('ramen.edit');
 
-    Route::put('/ramen/{ramen}/edit', [RamenController::class, 'update'])
-        ->name('ramen.update');
+        Route::put('/ramen/{ramen}/edit', [RamenController::class, 'update'])
+            ->name('ramen.update');
 
-    Route::delete('/ramen/{ramen}', [RamenController::class, 'destroy'])
-        ->name('ramen.destroy');
+        Route::delete('/ramen/{ramen}', [RamenController::class, 'destroy'])
+            ->name('ramen.destroy');
+    });
 });
 
 Route::prefix('ramen')->name('ramen.')->group(function () {
