@@ -38,7 +38,7 @@ class RamenController extends Controller
             'time_open_2' => ['nullable'],
             'time_close_2' => ['nullable'],
             'date_open' => ['nullable'],
-            'day_close' => ['required'],
+            'day_close' => ['nullable'],
         ]);
 
         if ($image = $request->file('image')) {
@@ -79,7 +79,7 @@ class RamenController extends Controller
             'time_open_2' => ['nullable'],
             'time_close_2' => ['nullable'],
             'date_open' => ['nullable'],
-            'day_close' => ['required'],
+            'day_close' => ['nullable'],
         ]);
 
         if ($image = $request->file('image')) {
