@@ -38,15 +38,18 @@ const toggle = (condition) => {
 </script>
 
 <template>
-    <Head title="Top" />
+    <Head title="検索" />
 
     <div class="bg-orange-100 pb-8">
-
         <!-- ここにhtmlを書いていく。bodyタグの中身だけ書けば良い。tailwindcssは勝手に効く。 -->
-        <div class="bg-orange-100 m-auto">
-            <!-- ヘッダー -->
-            <div class="bg-orange-400 h-8 flex justify-center items-center">
-                <div class="font-semibold text-white w-11/12">トップへ戻る</div>
+
+        <div class="bg-orange-500/80">
+            <div class="m-auto w-11/12 py-4">
+                <!-- 画像のsrcは/public/imageの中におく -->
+                <a class="text-white flex items-center">
+                <img src="/image/icon_home.png" alt="ホームアイコン" class="w-4 h-4 mr-2">
+                <Link :href="route('ramen.index')" class="font-semibold">ホームへ戻る</Link>
+                </a>
             </div>
         </div>
 
