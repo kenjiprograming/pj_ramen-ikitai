@@ -107,7 +107,7 @@ defineProps({ ramen: Object })
                     </tr>
                     <tr class="font-semibold">
                         <th scope="row" class="pr-2 py-2 whitespace-nowrap">食べログURL</th>
-                        <td class="border underline"><a :href="ramen.url">{{ ramen.url }}</a></td>
+                        <td class="border underline"><a :href="ramen.url" target="_blank">{{ ramen.url }}</a></td>
                     </tr>
                 </tbody>
             </table>
