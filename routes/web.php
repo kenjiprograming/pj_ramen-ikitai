@@ -5,6 +5,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\RamenController;
 use App\Http\Controllers\RamenController as FrontRamenController;
 use App\Http\Controllers\TopController;
+use App\Http\Controllers\DetailController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
