@@ -77,7 +77,6 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/', [TopController::class, 'index'])->name('top.index');
-Route::get('/detail', [DetailController::class, 'index'])->name('detail.index');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

@@ -93,8 +93,7 @@ class RamenController extends Controller
             return strpos($datum->id, $id) !== false;
         });
 
-
-        dd($result);
+        return Inertia::render('Show', ['ramens' => $result['ramens']]);
     }
 
     private function getRecents($data)
