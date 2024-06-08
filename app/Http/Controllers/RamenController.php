@@ -34,6 +34,11 @@ class RamenController extends Controller
                 $values = explode(" ", $params['all']);
 
                 foreach ($values as $value) {
+
+                    if ($value === 'こってり') {
+                        $value = '濃厚';
+                    }
+
                     if (str_contains($datum->name, $value)    ||
                         str_contains($datum->address, $value) ||
                         str_contains($datum->type, $value)    ||
