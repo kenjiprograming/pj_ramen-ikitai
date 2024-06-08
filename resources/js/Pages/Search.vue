@@ -144,7 +144,7 @@ const toggle = (condition) => {
                     </div>
                     <div class="flex justify-center mb-2">
                         <div class="bg-orange-500 w-1/12 rounded hover:bg-white">
-                            <Link :href="route('ramen.show', { ramen: ramen.id })" class="block text-white text-center w-full py-2 hover:text-orange-500">詳細</Link>
+                            <Link :href="route('ramen.show', { id: ramen.id })" class="block text-white text-center w-full py-2 hover:text-orange-500">詳細</Link>
                         </div>
                     </div>
                 </div>
