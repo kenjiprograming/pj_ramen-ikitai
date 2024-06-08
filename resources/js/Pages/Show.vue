@@ -1,6 +1,7 @@
 <script setup>
-import { Head } from '@inertiajs/vue3';
+import { Head, Link, router } from '@inertiajs/vue3';
 
+defineProps({ ramen: Object })
 </script>
 
 <template>
@@ -23,34 +24,29 @@ import { Head } from '@inertiajs/vue3';
     <div class="bg-orange-100">
     <!-- 店名 -->
       <div class="flex pt-6 mb-4 w-11/12 m-auto">
-        <h1 class="text-2xl font-bold text-gray-700 mr-2">浜田山</h1>
+        <h1 class="text-2xl font-bold text-gray-700 mr-2">{{ ramen.name }}</h1>
         <div class="rounded-md bg-orange-500 flex justify-items-center items-center">
-          <p class="text-white font-semibold px-4">濃厚 太麺</p>
+          <p class="text-white font-semibold px-4">{{ ramen.type }}</p>
         </div>
       </div>
       <!-- 画像（店内・ラーメン） -->
       <div class="flex w-11/12 m-auto mb-2">
         <div class="mr-[1%]">
-          <img src="/image/noimg.png" alt="イメージ画像">
-        </div>
-        <div class="mr-[1%]">
-          <img src="/image/noimg.png" alt="イメージ画像">
-        </div>
-        <div class="">
-          <img src="/image/noimg.png" alt="イメージ画像">
+          <img v-if="ramen.image" :src="'/upload/'+ ramen.image" :alt="ramen.image" class="object-cover">
+          <img v-else src="/image/noimg.png" alt="画像なし" class="">
         </div>
       </div>
       <!-- 情報 -->
-      <div class="flex w-11/12 m-auto mb-2">
+      <!-- <div class="flex w-11/12 m-auto mb-2">
         <div class="flex items-center">
           <img src="/image/icon-star.png" class="w-4 h-4 mr-1" alt="星のアイコン">
           <p class="text-base font-semibold mr-2">星4.5</p>
         </div>
         <p class="text-base font-semibold">¥800〜</p>
-      </div>
+      </div> -->
       <div class="w-11/12 m-auto flex items-center">
         <img src="/image/icon-clock.png" class="w-4 h-4 mr-1" alt="時計のアイコン">
-        <p class="text-base font-semibold">9:00〜20:00</p>
+        <p class="text-base font-semibold">{{ ramen.time_open }} ~ {{ ramen.time_close }} <span v-if="ramen.time_open_2">, {{ ramen.time_open_2 }} ~ {{ ramen.time_close_2 }}</span></p>
       </div>
       <!-- お店評価 -->
       <div class="w-11/12 m-auto mt-10 mb-16">
@@ -87,20 +83,20 @@ import { Head } from '@inertiajs/vue3';
                 <tbody>
                     <tr class="font-semibold">
                         <th scope="row" class="pr-2 py-2 whitespace-nowrap">住所</th>
-                        <td class="">静岡県浜松市中央区高林1-8-1 松本マンション 1F</td>
+                        <td class="">{{ ramen.address }}</td>
                     </tr>
-                    <tr class="font-semibold">
+                    <!-- <tr class="font-semibold">
                         <th scope="row" class="pr-2 py-2 whitespace-nowrap">TEL</th>
                         <td class="">053-523-8393</td>
-                    </tr>
+                    </tr> -->
                     <tr class="font-semibold">
                         <th scope="row" class="pr-2 py-2 whitespace-nowrap">定休日</th>
-                        <td class="">月曜日、祝日</td>
+                        <td class="">{{ ramen.day_close }}</td>
                     </tr>
-                    <tr class="font-semibold">
+                    <!-- <tr class="font-semibold">
                         <th scope="row" class="pr-2 py-2 whitespace-nowrap">駐車場</th>
                         <td class="">2台</td>
-                    </tr>
+                    </tr> -->
                 </tbody>
             </table>
         </div>
