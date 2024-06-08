@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use DateTime;
 use DateTimeImmutable;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -34,6 +33,11 @@ class RamenController extends Controller
                 $values = explode(" ", $params['all']);
 
                 foreach ($values as $value) {
+
+                    if ($value === 'こってり') {
+                        $value = '濃厚';
+                    }
+
                     if (str_contains($datum->name, $value)    ||
                         str_contains($datum->address, $value) ||
                         str_contains($datum->type, $value)    ||
@@ -93,7 +97,7 @@ class RamenController extends Controller
             return strpos($datum->id, $id) !== false;
         });
 
-        return Inertia::render('Show', ['ramens' => $result['ramens']]);
+        return Inertia::render('Show', ['ramen' => array_shift($result)]);
     }
 
     private function getRecents($data)

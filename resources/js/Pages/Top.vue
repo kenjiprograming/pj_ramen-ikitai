@@ -63,9 +63,9 @@ const searchNow = () => {
                 <div class="m-auto mt-6 mb-16">
                     <div class="w-full relative">
                         <img src="/image/area.png" class="w-full" alt="浜松駅周辺の画像">
-                        <div class="bg-orange-500 flex rounded w-9/12 absolute top-[80%] left-[12%] hover:bg-white">
+                        <!-- <div class="bg-orange-500 flex rounded w-9/12 absolute top-[80%] left-[12%] hover:bg-white">
                             <a href="#" class="block text-white text-center w-full font-semibold text-white py-4 hover:text-orange-500">地区からラーメンを探す →</a>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 <!-- ラーメンの系統から探す -->
@@ -132,7 +132,7 @@ const searchNow = () => {
                     </Link>
                 </div>
                 <!-- 最近オープンしたラーメン店 -->
-                <div class="bg-opacity-[60] bg-[3E2502]">
+                <div v-if="Object.keys(recents).length > 0" class="bg-opacity-[60] bg-[3E2502]">
                     <h2 class="mt-10 mb-6 text-xl font-bold text-gray-700">最近オープンしたラーメン店</h2>
                     <div class="flex">
                         <div v-for="recent in recents" class="mr-4 h-64">
@@ -144,7 +144,7 @@ const searchNow = () => {
                 </div>
 
                 <!-- ラーメンコラム -->
-                <h2 class="mt-10 mb-6 text-xl font-bold text-gray-700">ラーメンコラム</h2>
+                <!-- <h2 class="mt-10 mb-6 text-xl font-bold text-gray-700">ラーメンコラム</h2>
                 <div class="flex pb-20">
                     <div class="mr-4">
                         <img src="/image/noimg.png" alt="画像なし">
@@ -164,7 +164,7 @@ const searchNow = () => {
                         <p>家系ラーメンって何？</p>
                         <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deserunt quo vero adipisci ratione quae! Magni blanditiis molestias enim, laudantium quos aspernatur distinctio, maiores, obcaecati adipisci et debitis odio quibusdam. Vero.</p>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
