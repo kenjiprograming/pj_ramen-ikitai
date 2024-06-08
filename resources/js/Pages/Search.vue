@@ -137,7 +137,7 @@ const toggle = (condition) => {
                         <div>{{ ramen.address }}（住所）</div>
                     </div>
                     <div class="flex justify-center mb-2">
-                        <div>{{ ramen.time_open }}~{{ramen.time_close}} <span v-if="ramen.time_open_2">, {{ ramen.time_open_2 }} ~ {{ ramen.time_close_2 }}</span> （営業時間）</div>
+                        <div>{{ ramen.time_open }}~{{ ramen.time_close }} <span v-if="ramen.time_open_2">, {{ ramen.time_open_2 }} ~ {{ ramen.time_close_2 }}</span> （営業時間）</div>
                     </div>
                     <div class="flex justify-center mb-2">
                         <div>木（休業日）</div>
