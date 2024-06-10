@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue';
-import { Link, useForm } from '@inertiajs/vue3';
+import { Head, Link, useForm } from '@inertiajs/vue3';
 
 const types = [
     '濃厚細麺（博多・熊本等）', 'あっさり細麺（旭川・函館等）', '濃厚太麺（横浜家系・札幌等）', 'あっさり太麺（喜多方・牛骨等）',
@@ -60,6 +60,8 @@ const submit = () => {
 </script>
 
 <template>
+    <Head title="作成画面" />
+
     <div class="
     bg-gray-200
     py-6

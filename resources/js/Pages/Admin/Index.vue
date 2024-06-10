@@ -1,5 +1,5 @@
 <script setup>
-import { Link, usePage, useForm } from '@inertiajs/vue3'
+import { Head, Link, usePage, useForm } from '@inertiajs/vue3'
 
 defineProps({ ramens: Object })
 const page = usePage()
@@ -13,6 +13,8 @@ const deleteRamen = (ramen) => {
 </script>
 
 <template>
+    <Head title="一覧画面" />
+
     <div class="
     bg-gray-200
     py-6

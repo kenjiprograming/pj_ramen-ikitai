@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue';
-import { useForm, router, Link } from '@inertiajs/vue3';
+import { Head, useForm, router, Link } from '@inertiajs/vue3';
 
 const props = defineProps({ ramen: Object })
 
@@ -77,6 +77,8 @@ const submit = () => {
 </script>
 
 <template>
+    <Head title="編集画面" />
+
     <div class="
         bg-gray-200
         py-6
