@@ -178,7 +178,7 @@ const toggle = (condition) => {
                         <div v-else>なし（休業日）</div>
                     </div>
                     <div class="flex justify-center mb-2">
-                        <div class="bg-orange-500 w-1/12 rounded hover:bg-white">
+                        <div class="bg-orange-500 w-2/12 rounded hover:bg-white">
                             <Link :href="route('ramen.show', { id: ramen.id })" class="block text-white text-center w-full py-2 hover:text-orange-500">詳細</Link>
                         </div>
                     </div>
