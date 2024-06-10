@@ -1,11 +1,13 @@
 <script setup>
-import { Link } from '@inertiajs/vue3';
+import { Head, Link } from '@inertiajs/vue3';
 
 defineProps({ ramen: Object })
 
 </script>
 
 <template>
+    <Head title="詳細画面" />
+
     <div class="
     bg-gray-200
     py-6

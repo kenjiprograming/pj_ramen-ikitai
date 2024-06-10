@@ -28,7 +28,7 @@ const searchNow = () => {
 </script>
 
 <template>
-    <Head title="Top" />
+    <Head title="トップ" />
 
     <!-- ここにhtmlを書いていく。bodyタグの中身だけ書けば良い。tailwindcssは勝手に効く。 -->
     <div class="bg-orange-100 m-auto">
