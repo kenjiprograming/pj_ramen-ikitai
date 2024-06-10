@@ -61,9 +61,16 @@ const toggle = (condition) => {
                     <div>↓</div>
                 </div>
                 <div v-show="open.dist" class="flex justify-evenly mt-4 mb-4">
-                    <Link :href="route('ramen.search', { all: '中央区' })" class="px-4 py-2 text-sm border border-gray-400 bg-gray-100 hover:bg-orange-500 hover:text-white">中央区</Link>
-                    <Link :href="route('ramen.search', { all: '浜名区' })" class="px-4 py-2 text-sm border border-gray-400 bg-gray-100 hover:bg-orange-500 hover:text-white">浜名区</Link>
-                    <Link :href="route('ramen.search', { all: '天竜区' })" class="px-4 py-2 text-sm border border-gray-400 bg-gray-100 hover:bg-orange-500 hover:text-white">天竜区</Link>
+                    <Link :href="route('ramen.search', { all: '中央区' })" class="border-yellow-500 rounded-md border bg-white block w-[49%] mr-[1%] mb-[1%] hover:bg-orange-500">
+                        <p class="text-gray-700 text-center my-5 font-semibold hover:text-white">中央区</p>
+                    </Link>
+                    <Link :href="route('ramen.search', { all: '浜名区' })" class="border-yellow-500 rounded-md border bg-white block w-[49%] mr-[1%] mb-[1%] hover:bg-orange-500">
+                        <p class="text-gray-700 text-center my-5 font-semibold hover:text-white">浜名区</p>
+                    </Link>
+                    <Link :href="route('ramen.search', { all: '天竜区' })" class="border-yellow-500 rounded-md border bg-white block w-[49%] mr-[1%] mb-[1%] hover:bg-orange-500">
+                        <p class="text-gray-700 text-center my-5 font-semibold hover:text-white">天竜区</p>
+
+                    </Link>
                 </div>
             </div>
             <div class="w-4/5 mx-auto mb-4 pb-2 text-xl font-semibold border-b border-gray-500">
@@ -72,10 +79,18 @@ const toggle = (condition) => {
                     <div>↓</div>
                 </div>
                 <div v-show="open.type" class="flex justify-evenly mt-4 mb-4">
-                    <Link :href="route('ramen.search', { type: '濃厚太麺' })" class="px-4 py-2 text-sm border border-gray-400 bg-gray-100 hover:bg-orange-500 hover:text-white">濃厚太麺</Link>
-                    <Link :href="route('ramen.search', { type: '濃厚細麺' })" class="px-4 py-2 text-sm border border-gray-400 bg-gray-100 hover:bg-orange-500 hover:text-white">濃厚細麺</Link>
-                    <Link :href="route('ramen.search', { type: 'あっさり太麺' })" class="px-4 py-2 text-sm border border-gray-400 bg-gray-100 hover:bg-orange-500 hover:text-white">あっさり太麺</Link>
-                    <Link :href="route('ramen.search', { type: 'あっさり細麺' })" class="px-4 py-2 text-sm border border-gray-400 bg-gray-100 hover:bg-orange-500 hover:text-white">あっさり細麺</Link>
+                    <Link :href="route('ramen.search', { type: '濃厚太麺' })" class="border-yellow-500 rounded-md border bg-white block w-[49%] mr-[1%] mb-[1%] hover:bg-orange-500">
+                        <p class="text-gray-700 text-center my-5 font-semibold hover:text-white">濃厚太麺</p>
+                    </Link>
+                    <Link :href="route('ramen.search', { type: '濃厚細麺' })" class="border-yellow-500 rounded-md border bg-white block w-[49%] mr-[1%] mb-[1%] hover:bg-orange-500">
+                        <p class="text-gray-700 text-center my-5 font-semibold hover:text-white">濃厚細麺</p>
+                    </Link>
+                    <Link :href="route('ramen.search', { type: 'あっさり太麺' })" class="border-yellow-500 rounded-md border bg-white block w-[49%] mr-[1%] mb-[1%] hover:bg-orange-500">
+                        <p class="text-gray-700 text-center my-5 font-semibold hover:text-white">あっさり太麺</p>
+                    </Link>
+                    <Link :href="route('ramen.search', { type: 'あっさり細麺' })" class="border-yellow-500 rounded-md border bg-white block w-[49%] mr-[1%] mb-[1%] hover:bg-orange-500">
+                        <p class="text-gray-700 text-center my-5 font-semibold hover:text-white">あっさり細麺</p>
+                    </Link>
                 </div>
             </div>
             <div class="w-4/5 mx-auto mb-4 pb-2 text-xl font-semibold border-b border-gray-500">
@@ -106,16 +121,32 @@ const toggle = (condition) => {
                 </div>
                 <div v-show="open.taste" class="mt-4 mb-4">
                     <div class="flex justify-evenly mt-4 mb-4">
-                        <Link :href="route('ramen.search', { taste: '醤油' })" class="px-4 py-2 text-sm border border-gray-400 bg-gray-100 hover:bg-orange-500 hover:text-white">醤油</Link>
-                        <Link :href="route('ramen.search', { taste: '塩' })" class="px-4 py-2 text-sm border border-gray-400 bg-gray-100 hover:bg-orange-500 hover:text-white">塩</Link>
-                        <Link :href="route('ramen.search', { taste: '味噌' })" class="px-4 py-2 text-sm border border-gray-400 bg-gray-100 hover:bg-orange-500 hover:text-white">味噌</Link>
-                        <Link :href="route('ramen.search', { taste: '豚骨' })" class="px-4 py-2 text-sm border border-gray-400 bg-gray-100 hover:bg-orange-500 hover:text-white">豚骨</Link>
+                        <Link :href="route('ramen.search', { taste: '醤油' })" class="border-yellow-500 rounded-md border bg-white block w-[49%] mr-[1%] mb-[1%] hover:bg-orange-500">
+                            <p class="text-gray-700 text-center my-5 font-semibold hover:text-white">醤油</p>
+                        </Link>
+                        <Link :href="route('ramen.search', { taste: '塩' })" class="border-yellow-500 rounded-md border bg-white block w-[49%] mr-[1%] mb-[1%] hover:bg-orange-500">
+                            <p class="text-gray-700 text-center my-5 font-semibold hover:text-white">塩</p>
+                        </Link>
+                        <Link :href="route('ramen.search', { taste: '味噌' })" class="border-yellow-500 rounded-md border bg-white block w-[49%] mr-[1%] mb-[1%] hover:bg-orange-500">
+                            <p class="text-gray-700 text-center my-5 font-semibold hover:text-white">味噌</p>
+                        </Link>
+                        <Link :href="route('ramen.search', { taste: '豚骨' })" class="border-yellow-500 rounded-md border bg-white block w-[49%] mr-[1%] mb-[1%] hover:bg-orange-500">
+                            <p class="text-gray-700 text-center my-5 font-semibold hover:text-white">豚骨</p>
+                        </Link>
                     </div>
                     <div class="flex justify-evenly mt-4 mb-4">
-                        <Link :href="route('ramen.search', { taste: '牛骨' })" class="px-4 py-2 text-sm border border-gray-400 bg-gray-100 hover:bg-orange-500 hover:text-white">牛骨</Link>
-                        <Link :href="route('ramen.search', { taste: '煮干し' })" class="px-4 py-2 text-sm border border-gray-400 bg-gray-100 hover:bg-orange-500 hover:text-white">煮干し</Link>
-                        <Link :href="route('ramen.search', { taste: '白湯' })" class="px-4 py-2 text-sm border border-gray-400 bg-gray-100 hover:bg-orange-500 hover:text-white">白湯</Link>
-                        <Link :href="route('ramen.search', { taste: '魚介' })" class="px-4 py-2 text-sm border border-gray-400 bg-gray-100 hover:bg-orange-500 hover:text-white">魚介</Link>
+                        <Link :href="route('ramen.search', { taste: '牛骨' })" class="border-yellow-500 rounded-md border bg-white block w-[49%] mr-[1%] mb-[1%] hover:bg-orange-500">
+                            <p class="text-gray-700 text-center my-5 font-semibold hover:text-white">牛骨</p>
+                        </Link>
+                        <Link :href="route('ramen.search', { taste: '煮干し' })" class="border-yellow-500 rounded-md border bg-white block w-[49%] mr-[1%] mb-[1%] hover:bg-orange-500">
+                            <p class="text-gray-700 text-center my-5 font-semibold hover:text-white">煮干し</p>
+                        </Link>
+                        <Link :href="route('ramen.search', { taste: '白湯' })" class="border-yellow-500 rounded-md border bg-white block w-[49%] mr-[1%] mb-[1%] hover:bg-orange-500">
+                            <p class="text-gray-700 text-center my-5 font-semibold hover:text-white">白湯</p>
+                        </Link>
+                        <Link :href="route('ramen.search', { taste: '魚介' })" class="border-yellow-500 rounded-md border bg-white block w-[49%] mr-[1%] mb-[1%] hover:bg-orange-500">
+                            <p class="text-gray-700 text-center my-5 font-semibold hover:text-white">魚介</p>
+                        </Link>
                     </div>
                 </div>
             </div>
@@ -124,10 +155,10 @@ const toggle = (condition) => {
         <div v-if="Object.keys(ramens).length > 0">
             <div v-for="ramen in ramens" class="w-11/12 mx-auto border-t border-b border-gray-400 py-4 mt-4">
                 <div class="w-11/12 mx-auto">
-                    <div class="flex mb-4 justify-center">
-                        <div class="text-xl font-semibold me-4">{{ ramen.name }}</div>
-                        <div class="px-2 text-sm border border-gray-400 bg-gray-100 flex text-center items-center">
-                            <p>{{ ramen.type }}</p>
+                    <div class="flex mb-4 justify-center max-sm:flex-col">
+                        <div class="text-xl font-semibold me-4 max-sm:mb-2">{{ ramen.name }}</div>
+                        <div class="rounded-md bg-orange-500 flex justify-items-center items-center">
+                            <p class="text-white font-semibold px-4">{{ ramen.type }}</p>
                         </div>
                     </div>
                     <div class="flex justify-center mb-2">
