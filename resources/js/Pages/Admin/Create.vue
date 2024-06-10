@@ -119,6 +119,7 @@ const submit = () => {
                                 mb-2
                                 font-medium
                                 ">店名
+                                <span class="text-sm text-gray-500">※空白や（）は使わずに詰めて入力してください。重複は許可してません。例：麺屋 龍壽 （メンヤ リュウジュ）→麺屋龍壽</span>
                             </div>
                             <div v-if="form.errors.name" class="
                                 text-red-500

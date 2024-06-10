@@ -28,7 +28,7 @@ class RamenController extends Controller
     public function store(Request $request)
     {
         $formData = $request->validate([
-            'name' => ['required'],
+            'name' => ['required', 'unique:App\Models\Ramen'],
             'address' => ['required'],
             'type' => ['required'],
             'taste' => ['required'],
