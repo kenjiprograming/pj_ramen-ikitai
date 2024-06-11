@@ -34,6 +34,7 @@ defineProps({ ramen: Object })
         <div class="mr-[1%]">
           <img v-if="ramen.image" :src="'/upload/'+ ramen.image" :alt="ramen.image" class="object-cover">
           <img v-else src="/image/noimg.png" alt="画像なし" class="">
+          <p class="text-sm text-gray-500">画像は「<a :href="ramen.url" target="_blank" class="underline">食べログ</a>」より引用。</p>
         </div>
       </div>
       <!-- 情報 -->
@@ -107,7 +108,7 @@ defineProps({ ramen: Object })
                     </tr>
                     <tr class="font-semibold">
                         <th scope="row" class="pr-2 py-2 whitespace-nowrap">食べログURL</th>
-                        <td class="border underline"><a :href="ramen.url" target="_blank">{{ ramen.url }}</a></td>
+                        <td class="underline"><a :href="ramen.url" target="_blank">{{ ramen.url }}</a></td>
                     </tr>
                 </tbody>
             </table>

@@ -165,6 +165,7 @@ const toggle = (condition) => {
                         <div class="mx-2 w-[380px]">
                             <img v-if="ramen.image" :src="'/upload/'+ ramen.image" :alt="ramen.image" class="object-cover">
                             <img v-else src="/image/noimg.png" alt="画像なし" class="">
+                            <p v-if="ramen.image" class="text-xs text-gray-500">画像は「<a :href="ramen.url" target="_blank" class="underline">食べログ</a>」より引用。</p>
                         </div>
                     </div>
                     <div class="flex justify-center mb-2">
