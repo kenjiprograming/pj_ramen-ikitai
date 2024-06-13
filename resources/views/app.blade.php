@@ -2,6 +2,13 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
+        <meta name="keywords" content="ラーメンイキタイ,浜松ラーメン,ラーメン, 浜松駅 , 浜松,浜松市,"/>
+        <meta name="description" content="静岡県浜松市内のラーメン検索サイト「ラーメンイキタイ」は、浜松市内のラーメン店を掲載しています。エリアの絞り込みやラーメンの系統、営業時間、好きな味から、あなたにぴったりのラーメンが見つかります！皆さんからのラーメン情報も募集しています！"/>
+        {{-- <meta property="og:image" content="/image/sns-icon.png" /> --}}
+        <link rel="shortcut icon" href="/image/favicon.ico" type="image/vnd.microsoft.icon"/>
+        <link rel="icon" href="/image/favicon.ico" type="image/vnd.microsoft.icon"/>
+        <link rel="apple-touch-icon" href="/image/app-icon.png" />
+
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title inertia>{{ config('app.name', 'Laravel') }}</title>
