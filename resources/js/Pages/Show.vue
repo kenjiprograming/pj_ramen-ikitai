@@ -122,7 +122,8 @@ defineProps({ ramen: Object })
     <footer class="bg-amber-900	">
         <div class="text-2xl text-white font-black text-center pt-10 drop-shadow">ラーメンイキタイ</div>
         <p class="pb-16 text-center text-white">in浜松</p>
-        <p class="text-center text-white"><a href="#">このサイトについて</a></p>
+        <p class="pb-6 text-center text-white"><a href="/public/pdf/site-policy.pdf">このサイトについて</a></p>
+        <p class="text-center text-white"><a href="/public/pdf/privacy-policy.pdf">個人情報保護方針</a></p>
         <p class="pt-16 text-center text-white">©2024 ramen-ikitai</p>
     </footer>
 </template>
