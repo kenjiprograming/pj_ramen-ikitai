@@ -28,7 +28,7 @@ const searchNow = () => {
 </script>
 
 <template>
-    <Head title="トップ" />
+    <Head title="ラーメンイキタイ-浜松市内のラーメン検索サイト" />
 
     <!-- ここにhtmlを書いていく。bodyタグの中身だけ書けば良い。tailwindcssは勝手に効く。 -->
     <div class="bg-orange-100 m-auto">
@@ -136,8 +136,8 @@ const searchNow = () => {
                     <h2 class="mt-10 mb-6 text-xl font-bold text-gray-700">最近オープンしたラーメン店</h2>
                     <div class="flex">
                         <div v-for="recent in recents" class="mr-4 h-64">
-                            <img v-if="recent.image" :src="'/upload/'+ recent.image" :alt="recent.image">
-                            <img v-else src="/image/noimg.png" alt="画像なし">
+                            <img class="w-5/12" v-if="recent.image" :src="'/upload/'+ recent.image" :alt="recent.image">
+                            <img class="w-5/12" v-else src="/image/noimg.png" alt="画像なし">
                             <p>{{ recent.name }}</p>
                         </div>
                     </div>
@@ -177,8 +177,8 @@ const searchNow = () => {
     <footer class="bg-amber-900	">
         <div class="text-2xl text-white font-black text-center pt-10 drop-shadow">ラーメンイキタイ</div>
         <p class="pb-16 text-center text-white">in浜松</p>
-        <p class="pb-6 text-center text-white"><a href="/public/pdf/site-policy.pdf">このサイトについて</a></p>
-        <p class="text-center text-white"><a href="/public/pdf/privacy-policy.pdf">個人情報保護方針</a></p>
+        <p class="pb-6 text-center text-white"><a href="/pdf/site-policy.pdf" target="_blank">このサイトについて</a></p>
+        <p class="text-center text-white"><a href="/pdf/privacy-policy.pdf" target="_blank">個人情報保護方針</a></p>
         <p class="pt-16 text-center text-white">©2024 ramen-ikitai</p>
     </footer>
 </template>
